@@ -34,7 +34,10 @@ def crawl(year):
                 parse_json = xmltojson.parse(xml)
                 data_dict = json.loads(parse_json)
 
-                save_json(data_dict, year)
+                if data_dict['PubmedArticleSet'] != None:
+                    save_json(data_dict, year)
+                else:
+                    print('Artice is None, id = {}'.format(id))
                 # print('debug')
 
 
