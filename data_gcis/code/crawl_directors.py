@@ -4,7 +4,7 @@ import time
 import os
 import random
 from bs4 import BeautifulSoup
-from utils import b_acc_no, company_name
+from utils import b_acc_no
 
 request_url = 'https://findbiz.nat.gov.tw/fts/query/QueryCmpyDetail/queryCmpyDetail.do'
 headers = {
@@ -15,19 +15,21 @@ headers = {
 form_data = {
     'banNo': '{id}',
 }
-def get_directors():
+def get_directors(acc_num_list):
 
     idx = 0
-    for acc_num in b_acc_no:
+    for acc_num in acc_num_list:
 
         crawl_data = {}
-        crawl_data['Company_Name'] = company_name[idx]
-        crawl_data['Business_Accounting_NO'] = acc_num
-        crawl_data['Directors'] = []
-
         form_data['banNo'] = acc_num
         time.sleep(random.uniform(1, 3))
-        res = requests.post(url = request_url, data = form_data, headers = headers)
+        try:
+            res = requests.post(url = request_url, data = form_data, headers = headers)
+        except requests.exceptions.ConnectionError:
+            print('requests.exceptions.ConnectionError --> wait for 1 minute and try connect again')
+            time.sleep(60)
+            continue
+
         html_txt = res.text
         soup = BeautifulSoup(html_txt, 'lxml')
         # html = soup.prettify()
@@ -37,6 +39,12 @@ def get_directors():
         juristic_person = [i.text.replace('\n', '').replace('\t', '').replace('\r', '') for i in soup.find_all('td', attrs = {"data-title": "所代表法人"})]
         shareholding = [i.text.replace('\n', '').replace('\t', '').replace('\r', '') for i in soup.find_all('td', attrs = {"data-title": "持有股份數"})]
         capital_contribution = [i.text.replace('\n', '').replace('\t', '').replace('\r', '') for i in soup.find_all('td', attrs={"data-title": "出資額"})]
+
+        company_name = soup.find('td', text = '公司名稱').next_sibling.next_sibling.contents[0].replace('\n', '').replace('\t', '').replace('\r', '')
+        crawl_data['Company_Name'] = company_name
+        crawl_data['Business_Accounting_NO'] = acc_num
+        crawl_data['Directors'] = []
+
         if len(position) != 0 :
             for dir_idx in range(len(position)):
 
@@ -56,7 +64,7 @@ def get_directors():
         save_json(crawl_data)
         idx += 1
 
-        print('finish {}/{}' .format(idx, len(b_acc_no)))
+        print('finish {}/{}' .format(idx, len(acc_num_list)))
 
 def save_json(crawl_data):
 
@@ -71,5 +79,17 @@ def save_json(crawl_data):
 
         f.write(save_json)
 
+def check_crawled():
+
+    ck_path = '../directors_data'
+    crawled_id = os.listdir(ck_path)
+    total_id = b_acc_no
+
+    acc_num_list = list(set(total_id) - set(crawled_id))
+
+    return acc_num_list
+
 if __name__ == "__main__":
-    get_directors()
+
+    acc_num_list = check_crawled()
+    get_directors(acc_num_list)
