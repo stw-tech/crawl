@@ -29,27 +29,18 @@ data = {
         'codeWiat2': True,
         'codeWiat3': True   }
 
-
-
-
 def check_update():
 
 
     for year in range(end_year, start_year-1, -1):
 
-        if not os.path.exists('../data/{}/{}{}'.format(year, date.month, date.day)):
-            os.makedirs('../data/{}/{}{}'.format(year, date.month, date.day))
+        if not os.path.exists('../data/{}'.format(year)):
+            os.makedirs('../data/{}'.format(year))
 
         current_page = start_page
         year_dir = os.path.join(data_dir, str(year))
 
-        month_dir = os.listdir(year_dir)
-
-        json_list = []
-        for dir in month_dir:
-            month_path = os.path.join(year_dir, dir)
-            json_tmp_list = os.listdir(month_path)
-            json_list.extend(json_tmp_list)
+        json_list = os.listdir(year_dir)
 
         id_list = [file.replace('.json', "") for file in json_list]
 
@@ -64,10 +55,9 @@ def check_update():
         new_id_list, diff_list = [], []
         if new_plan_num > data_plan_num:
             print('>> the {}\'s plans should be updated'.format(year))
-            print('>> collecting id of plans in {} year'.format(year))
             while current_page <= total_pages:
 
-                print('>> collecting {}/{} pages'.format(current_page, total_pages))
+                # print('>> collecting {}/{} pages'.format(current_page, total_pages))
                 data['nowPage'] = current_page
                 time.sleep(random.uniform(2, 5))
                 res = requests.post(url=url, data=data, headers=headers)
@@ -76,16 +66,18 @@ def check_update():
                     new_id_list.append(str(plan['id']))
                 current_page += 1
             diff_list = list(set(new_id_list) - set(id_list))
+            print("total plans: {}, finish crawled: {}, need to crawl: {}".format(len(new_id_list), len(id_list), len(diff_list)))
+
             get_data(diff_list, year)
         else:
             print('>> no need to update {}\'s plans'.format(year))
 
-    print('>> finish update '.format(year))
+    print('>> finish updating '.format(year))
 
 
 def get_data(id_list, year):
 
-    print('>> updating {}\'s plans, there are {} plans to update'.format(year, len(id_list)))
+    print('>> updating {}\'s plan, there are {} plans to update'.format(year, len(id_list)))
 
     for id in id_list:
 
@@ -94,7 +86,7 @@ def get_data(id_list, year):
         res = requests.post(url=detail_url)
         save_json = json.dumps(res.json(), indent=4, sort_keys=True, ensure_ascii=False)
 
-        with open('../data/{}/{}{}/{}.json'.format(year, date.month, date.day, id), 'w', encoding='utf-8') as f:
+        with open('../data/{}/{}.json'.format(year, id), 'w', encoding='utf-8') as f:
             f.write(save_json)
 
 
