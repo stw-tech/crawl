@@ -5,8 +5,8 @@ import json
 import time
 import re
 
-start_date = [2019, 6, 1]
-end_date = [2019, 6, 31]
+start_year = 2018
+end_year = 2019
 
 start_page = 1
 
@@ -19,7 +19,7 @@ payload = {
             "f":'S',
             "l":50,
             "d":"PG01",
-            "Query":"PD%2F{}%2F{}%2F{}-%3E{}%2F{}%2F{}".format(start_date[1], start_date[2], start_date[0], end_date[1], end_date[2], end_date[0])
+            "Query":"PD%2F{}%2F{}%2F{}-%3E{}%2F{}%2F{}"
            }
 
 
@@ -27,6 +27,7 @@ payload = {
 def get_doc_num_and_title():
 
     count = 0
+    payload['p'] = start_page
     patent = {}
     patent['doc_num'], patent['title'] = [], []
 
@@ -35,7 +36,7 @@ def get_doc_num_and_title():
         try:
             request_url = 'http://appft.uspto.gov/netacgi/nph-Parser?Sect1={Sect1}&Sect2={Sect2}&p={p}&u={u}' \
                           '&r={r}&f={f}&l={l}&d={d}&Query={Query}'.format(**payload)
-            time.sleep(2)
+            time.sleep(0.5)
             res = requests.get(url= request_url)
             html_txt = res.text
             soup = BeautifulSoup(html_txt, 'html.parser')
@@ -55,11 +56,11 @@ def get_doc_num_and_title():
         # print('debug')
     return patent
 
-def crawl_patent(patent):
+def crawl_patent(patent, year):
 
     crawled_info = {}
 
-    payload = {
+    num_payload = {
         "Sect1": "PTO1",
         "Sect2": "HITOFF",
         "p": 1,
@@ -73,33 +74,38 @@ def crawl_patent(patent):
         'RS': 'DN/{}'
     }
     idx = 0
-    for id in patent['doc_num']:
+    for id in patent:
 
         crawled_info[id] = {}
-        crawled_info[id]['title'] = patent['title'][idx]
 
-        payload['s1'] = "\"{}\".PGNR.".format(id)
-        payload['OS'] = "DN/{}".format(id)
-        payload['RS'] = "DN/{}".format(id)
+        num_payload['s1'] = "\"{}\".PGNR.".format(id)
+        num_payload['OS'] = "DN/{}".format(id)
+        num_payload['RS'] = "DN/{}".format(id)
 
         request_url = 'http://appft.uspto.gov/netacgi/nph-Parser?Sect1={Sect1}&Sect2={Sect2}&d={d}&p={p}&u={u}' \
-                      '&r={r}&f={f}&l={l}&s1={s1}&OS={OS}&RS={RS}'.format(**payload)
-        time.sleep(3)
+                      '&r={r}&f={f}&l={l}&s1={s1}&OS={OS}&RS={RS}'.format(**num_payload)
+        time.sleep(1.5)
         res = requests.get(url=request_url)
         html_txt = res.text
 
         soup = BeautifulSoup(html_txt, 'lxml')
-        print(soup.prettify())
+        # print(soup.prettify())
 
+        title = soup.find('font', {'size': '+1'}).text.replace('\n', '')
         Publication_Number = soup.find_all('td', {'align': 'RIGHT', 'width': '50%'})[0].text.replace('\n', '')
         Publication_Date = soup.find_all('td', {'align': 'RIGHT', 'width': '50%'})[2].text.replace('\n', '')
         Application_Number = soup.find('td', text = re.compile('Appl. No.')).next_sibling.text.replace('\n', '')
         filing_date = soup.find('td', text = re.compile('Filed:')).next_sibling.text.replace('\n', '')
+        Inventors = soup.find('td', text=re.compile('Inventors')).next_sibling.next_sibling.text.replace('\n', '')
+        link = 'http://pdfaiw.uspto.gov/.aiw?Docid={}'.format(id)
 
+        crawled_info[id]['title'] = title
         crawled_info[id]['Publication_Number'] = Publication_Number
         crawled_info[id]['Application_Number'] = Application_Number
         crawled_info[id]['filing_date'] = filing_date
         crawled_info[id]['Publication_Date'] = Publication_Date
+        crawled_info[id]['Inventors'] = Inventors
+        crawled_info[id]['link'] = link
 
         tag = soup.select('center > b')
         for t in tag:
@@ -108,7 +114,7 @@ def crawl_patent(patent):
                 p_tag = t.parent.next_sibling.next_sibling
                 abstract = p_tag.text
                 crawled_info[id][t.text] = abstract
-                # print(abstract)
+
             if t.text == "Claims":
                 crawled_info[id][t.text] = ''
                 p_tag = t.parent
@@ -117,27 +123,24 @@ def crawl_patent(patent):
 
                     following = following.next_sibling
                     if str(following) == '<br/>' or str(following) == '\n' or str(following) == '<hr/>' :
-                        # print('<hr/>')
                         continue
                     if str(following) == "<center><b><i>Description</i></b></center>":
                         break
                     else:
                         crawled_info[id][t.text] += following
 
-        save_json(crawled_info[id])
+        save_json(crawled_info[id], year)
         idx += 1
-        print('de')
 
+        print('finish {}/{}'.format(idx, len(patent)))
 
     return crawled_info
 
 
-def save_json(crawl_data):
+def save_json(crawl_data, year):
 
-    start = ['0'+ str(i) if i < 10 else str(i) for i in start_date ]
-    end = ['0'+ str(i) if i < 10 else str(i) for i in end_date ]
-    dir_name = ''.join(start) + '-' + ''.join(end)
-    path = os.path.join('../data', dir_name, crawl_data['Publication_Number'])
+
+    path = os.path.join('../newdata', str(year), crawl_data['Publication_Number'])
 
     if not os.path.exists(path):
         os.makedirs(path)
@@ -146,7 +149,27 @@ def save_json(crawl_data):
     with open(os.path.join(path, 'data.json'), 'w', encoding='utf-8') as f:
         f.write(save_json)
 
+def check_crawled(patent_id, year):
+
+    print('>>> checking data is crawled or not')
+
+    ck_dir = '../newdata'
+    ck_path = os.path.join(ck_dir, str(year))
+
+    crawled_id = os.listdir(ck_path)
+    total_id = patent_id
+    pantent_id_list = list(set(total_id) - set(crawled_id))
+
+    print('total num of crawling data: {}, finish crawled: {}, left crawled: {}'. format(len(total_id), len(crawled_id), len(pantent_id_list)))
+
+    return pantent_id_list
+
 if __name__ == "__main__":
 
-    patent = get_doc_num_and_title()
-    crawl_patent(patent)
+    for year in range(start_year, end_year+1):
+
+        print(">>> crawl uspto data in {} year".format(year))
+        payload['Query'] = "PD%2F{}%2F{}%2F{}-%3E{}%2F{}%2F{}".format(1, 1, year, 12, 31, year)
+        patent = get_doc_num_and_title()
+        pantent_id_list = check_crawled(patent['doc_num'], year)
+        crawl_patent(pantent_id_list, year)
