@@ -1,5 +1,5 @@
 ﻿# MOEA
-* Finishing crawling **API 6,13,15,24\~28,31\~39,41\~48**,  
+* Finishing crawling **API 6, 13, 15, 24\~28, 31\~39, 41\~48**
 Referer url:<http://data.gcis.nat.gov.tw/od/rule>
 * Finishing crawling directors data with company **核准設立** 
 ## Save Path
