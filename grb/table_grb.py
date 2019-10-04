@@ -1,7 +1,7 @@
 import boto3
 import json
 import glob
-import tqdm
+from tqdm import tqdm
 
 dynamodb = boto3.resource('dynamodb')
 table = dynamodb.Table('GRB')
