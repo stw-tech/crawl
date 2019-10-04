@@ -1,6 +1,7 @@
 {
     "userInfo":{
-        "institute":false,
+        "customerNameRaw":"National Taiwan University",
+        "institute":true,
         "member":false,
         "individual":false,
         "guest":false,
@@ -8,55 +9,109 @@
         "fileCabinetContent":false,
         "fileCabinetUser":false,
         "institutionalFileCabinetUser":false,
+        "products":"IBM|EBOOKS:1872:2015|MITP:1943:2019|NOW:1872:2019|MCCIS7|MCCIS8|IEL|MCSYNTH7|MCSYNTH8|VDE|NOKIA BELL LABS|",
+        "instType":"Academic",
+        "userIds":[
+            5659
+        ],
         "showPatentCitations":true,
-        "showGet802Link":false,
-        "showOpenUrlLink":false,
+        "showGet802Link":true,
+        "openUrlImgLoc":"https://www.lib.ntu.edu.tw/img/NTU_LR_icon.jpg",
+        "openUrlLink":"https://ntu.primo.exlibrisgroup.com/discovery/openurl?institution=886NTU_INST&vid=886NTU_INST:886NTU_INST&",
+        "openUrlTxt":"Find It@NTU",
+        "showOpenUrlLink":true,
+        "marketingInfoCaptured":false,
         "tracked":false
     },
+    "authors":[
+        {
+            "name":"Jason Anderson",
+            "affiliation":"University of Toronto, Canada",
+            "bio":{
+                "graphic":"/mediastore_new/IEEE/content/freeimages/7227129/7245687/7245690/7245690-photo-1-source-small.gif",
+                "p":[
+                    ""
+                ]
+            },
+            "firstName":"Jason",
+            "lastName":"Anderson",
+            "id":"37085687009"
+        },
+        {
+            "name":"Hayden Kwok-Hay So",
+            "affiliation":"The University of Hong Kong, Hong Kong",
+            "bio":{
+                "graphic":"/mediastore_new/IEEE/content/freeimages/7227129/7245687/7245690/7245690-photo-2-source-small.gif",
+                "p":[
+                    ""
+                ]
+            },
+            "lastName":"Hayden Kwok-Hay So",
+            "id":"37085695971"
+        },
+        {
+            "name":"Deshanand Singh",
+            "affiliation":"Altera Corporation, Canada",
+            "bio":{
+                "graphic":"/mediastore_new/IEEE/content/freeimages/7227129/7245687/7245690/7245690-photo-3-source-small.gif",
+                "p":[
+                    ""
+                ]
+            },
+            "firstName":"Deshanand",
+            "lastName":"Singh",
+            "id":"37085689366"
+        }
+    ],
     "isbn":[
         {
             "format":"Electronic ISBN",
-            "value":"978-1-4799-7180-0"
+            "value":"978-1-4799-1925-3"
         },
         {
-            "format":"Print ISBN",
-            "value":"978-1-4799-7179-4"
+            "format":"USB ISBN",
+            "value":"978-1-4799-1924-6"
         }
     ],
-    "articleNumber":"7244935",
-    "dbTime":"4 ms",
+    "issn":[
+        {
+            "format":"Electronic ISSN",
+            "value":"2160-052X"
+        },
+        {
+            "format":"Print ISSN",
+            "value":"1063-6862"
+        }
+    ],
+    "articleNumber":"7245690",
+    "dbTime":"3 ms",
     "metrics":{
         "citationCountPaper":0,
         "citationCountPatent":0,
-        "totalDownloads":70
+        "totalDownloads":181
     },
-    "pdfUrl":"/stamp/stamp.jsp?tp=&arnumber=7244935",
+    "pdfUrl":"/stamp/stamp.jsp?tp=&arnumber=7245690",
     "purchaseOptions":{
         "showOtherFormatPricingTab":false,
         "showPdfFormatPricingTab":true,
-        "pdfPricingInfoAvailable":true,
+        "pdfPricingInfoAvailable":false,
         "otherPricingInfoAvailable":false,
         "mandatoryBundle":false,
         "optionalBundle":false,
-        "pdfPricingInfo":[
-            {
-                "memberPrice":"$14.95",
-                "nonMemberPrice":"$33.00",
-                "partNumber":"7244935",
-                "type":"PDF"
-            }
-        ]
+        "displayTextWhenPdfPricingNotAvailable":"The purchase and pricing options for this item are unavailable. Select items are only available as part of a subscription package. You may try again later or <a href='https://ieeexplore.ieee.org/xpl/contact' target='_blank'>contact us</a> for more information",
+        "displayTextWhenOtherFormatPricingNotAvailable":"The purchase and pricing options for this item are unavailable. Select items are only available as part of a subscription package. You may try again later or <a href='https://ieeexplore.ieee.org/xpl/contact' target='_blank'>contact us</a> for more information",
+        "openUrlFullLink":"https://ntu.primo.exlibrisgroup.com/discovery/openurl?institution=886NTU_INST&vid=886NTU_INST:886NTU_INST&&url_ver=Z39.88-2004&rfr_id=info:sid/IEEE.org:XPLORE&rft_id=info:doi/10.1109/ASAP.2015.7245690&url_ctx_fmt=info:ofi/fmt:kev:mtx:ctx&rft_val_fmt=info:ofi/fmt:kev:mtx:journal&rft.atitle=Message from the ASAP 2015 chairs&rft.jtitle=2015 IEEE 26th International Conference on Application-specific Systems, Architectures and Processors (ASAP)&rft.date=2015&rft.spage=1&rft.epage=2&rft.issn=1063-6862&rft.eissn=2160-052X&rft.au=Jason Anderson&rft.aulast=Jason Anderson&rft.isbn=978-1-4799-1925-3"
     },
-    "formulaStrippedArticleTitle":"[Front cover]",
+    "formulaStrippedArticleTitle":"Message from the ASAP 2015 chairs",
     "getProgramTermsAccepted":false,
     "sections":{
         "abstract":"true",
-        "authors":"false",
-        "figures":"false",
+        "authors":"true",
+        "figures":"true",
         "multimedia":"false",
         "references":"false",
         "citedby":"false",
-        "keywords":"true",
+        "keywords":"false",
         "definitions":"false",
         "algorithm":"false",
         "supplements":"false",
@@ -64,30 +119,19 @@
         "disclaimer":"false",
         "metrics":"true"
     },
-    "title":"[Front cover]",
-    "abstract":"Presents the front cover of the proceedings record.",
-    "pubLink":"/xpl/conhome/7227957/proceeding",
-    "issueLink":"/xpl/tocresult.jsp?isnumber=7244933",
-    "standardTitle":"[Front cover]",
-    "doi":"10.1109/ICSoEB.2015.7244935",
-    "publicationTitle":"2015 International Conference on Solar Energy and Building (ICSoEB)",
-    "startPage":"1",
-    "endPage":"1",
-    "rightsLink":"http://s100.copyright.com/AppDispatchServlet?publisherName=ieee&publication=proceedings&title=%5BFront+cover%5D&isbn=978-1-4799-7179-4&publicationDate=Jan.+2015&author=&ContentID=10.1109/ICSoEB.2015.7244935&orderBeanReset=true&startPage=1&endPage=1&proceedingName=2015+International+Conference+on+Solar+Energy+and+Building+%28ICSoEB%29",
-    "displayPublicationTitle":"2015 International Conference on Solar Energy and Building (ICSoEB)",
-    "pdfPath":"/iel7/7227957/7244933/07244935.pdf",
+    "title":"Message from the ASAP 2015 chairs",
+    "abstract":"We welcome you to the 26th IEEE International Conference on Application-specific Systems, Architectures and Processors (ASAP 2015). This year's event takes place in Toronto, Canada on the campus of the University of Toronto. Prior to this year's visit to Toronto, the conference has been held in many places around the globe including Oxford (1986), San Diego (1988), Killarney (1989), Princeton (1990), Barcelona (1991), Berkeley (1992), Venice (1993), San Francisco (1994), Strasbourg (1995), Chicago (1996), Z\u00fcrich (1997), Boston (2000), San Jose (2002), The Hague (2003), Galveston (2004), Samos (2005), Steamboat Springs (2006), Montr\u00e9al (2007), Leuven (2008), Boston (2009), Rennes (2010), Santa Monica (2011), Delft (2012), and Washington, D.C (2013), and Z\u00fcrich (2014).",
     "allowComments":false,
-    "keywords":[
-        {
-            "type":"IEEE Keywords",
-            "kwd":[
-                "Solar energy",
-                "Buildings",
-                "Conferences",
-                "Sections"
-            ]
-        }
-    ],
+    "pubLink":"/xpl/conhome/7227129/proceeding",
+    "issueLink":"/xpl/tocresult.jsp?isnumber=7245687",
+    "standardTitle":"Message from the ASAP 2015 chairs",
+    "doi":"10.1109/ASAP.2015.7245690",
+    "publicationTitle":"2015 IEEE 26th International Conference on Application-specific Systems, Architectures and Processors (ASAP)",
+    "rightsLink":"http://s100.copyright.com/AppDispatchServlet?publisherName=ieee&publication=proceedings&title=Message+from+the+ASAP+2015+chairs&isbn=978-1-4799-1925-3&publicationDate=July+2015&author=Jason+Anderson&ContentID=10.1109/ASAP.2015.7245690&orderBeanReset=true&startPage=1&endPage=2&proceedingName=2015+IEEE+26th+International+Conference+on+Application-specific+Systems%2C+Architectures+and+Processors+%28ASAP%29",
+    "displayPublicationTitle":"2015 IEEE 26th International Conference on Application-specific Systems, Architectures and Processors (ASAP)",
+    "pdfPath":"/iel7/7227129/7245687/07245690.pdf",
+    "startPage":"1",
+    "endPage":"2",
     "isJournal":false,
     "isConference":true,
     "isBook":false,
@@ -102,61 +146,59 @@
             "name":"Components, Circuits, Devices and Systems"
         },
         {
-            "name":"Engineered Materials, Dielectrics and Plasmas"
+            "name":"Computing and Processing"
         },
         {
-            "name":"Engineering Profession"
-        },
-        {
-            "name":"Fields, Waves and Electromagnetics"
-        },
-        {
-            "name":"Power, Energy and Industry Applications"
+            "name":"Signal Processing and Analysis"
         }
     ],
     "publisher":"IEEE",
     "isStandard":false,
-    "isNotDynamicOrStatic":true,
+    "isACM":false,
     "isFreeDocument":true,
     "isSMPTE":false,
     "isSAE":false,
     "isNow":false,
     "isCustomDenial":false,
     "isPromo":false,
-    "chronOrPublicationDate":"20-21 Jan. 2015",
     "isOpenAccess":false,
-    "isEarlyAccess":false,
-    "isChapter":false,
-    "isStaticHtml":false,
     "isProduct":false,
     "isEphemera":true,
     "isMorganClaypool":false,
-    "publicationDate":"Jan. 2015",
-    "persistentLink":"https://ieeexplore.ieee.org/servlet/opac?punumber=7227957",
-    "isACM":false,
+    "isChapter":false,
+    "isStaticHtml":true,
+    "isEarlyAccess":false,
+    "publicationDate":"July 2015",
+    "htmlLink":"/document/7245690/",
+    "persistentLink":"https://ieeexplore.ieee.org/servlet/opac?punumber=7227129",
     "isOUP":false,
-    "isDynamicHtml":false,
-    "htmlAbstractLink":"/document/7244935/",
-    "conferenceDate":"20-21 Jan. 2015",
+    "isDynamicHtml":true,
+    "isNotDynamicOrStatic":false,
+    "htmlAbstractLink":"/document/7245690/",
+    "conferenceDate":"27-29 July 2015",
+    "chronOrPublicationDate":"27-29 July 2015",
     "openAccessFlag":"F",
     "ephemeraFlag":"true",
     "chorusFlag":"false",
-    "confLoc":"Sousse, Tunisia",
-    "html_flag":"false",
-    "ml_html_flag":"false",
+    "confLoc":"Toronto, ON, Canada",
+    "html_flag":"true",
+    "ml_html_flag":"true",
     "promoFlag":"false",
-    "sourcePdf":"1ICSoEBproceedingsCover.pdf",
+    "sourcePdf":"301GENCHAIR.pdf",
     "content_type":"Conferences",
-    "mlTime":"PT0.013463S",
-    "chronDate":"20-21 Jan. 2015",
-    "isNumber":"7244933",
+    "mlTime":"PT0.021332S",
+    "chronDate":"27-29 July 2015",
+    "xplore-pub-id":"7227129",
+    "isNumber":"7245687",
     "rightsLinkFlag":"1",
     "contentType":"conferences",
-    "publicationNumber":"7227957",
-    "articleId":"7244935",
+    "publicationNumber":"7227129",
+    "xplore-issue":"7245687",
+    "articleId":"7245690",
     "onlineDate":"",
     "publicationYear":"2015",
     "subType":"IEEE Conference",
+    "_value":"IEEE",
     "lastupdate":"2019-06-17",
-    "mediaPath":""
+    "mediaPath":"/mediastore_new/IEEE/content/media/7227129/7245687/7245690"
 }
