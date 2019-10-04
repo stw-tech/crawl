@@ -65,9 +65,11 @@ for ieee_data in tqdm(glob.glob("./data/*/*/*/*.json")):
                 "sponsors":  s,
                 "standardTitle":  _ToNull(jf["standardTitle"]),
                 "subType":  _ToNull(jf["subType"]),
-                "title":  _ToNull(jf["title"]),
+                "xploreDocumentType": xplore,
                 "volume":  v,
-                "xploreDocumentType": xplore
+                "title":  _ToNull(jf["title"])
+               
+                
             }
         )
     # except:
