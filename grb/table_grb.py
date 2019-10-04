@@ -1,7 +1,7 @@
 import boto3
 import json
 import glob
-
+import tqdm
 
 dynamodb = boto3.resource('dynamodb')
 table = dynamodb.Table('GRB')
@@ -12,12 +12,12 @@ def _ToNull(data):
     else:
         return data
 def _ToString(data):
-    if(data == ""):
+    if(data == None):
         return "Null"
     else:
         return data
 
-for grb_data in glob.glob("./data/*/*.json"):
+for grb_data in tqdm(glob.glob("./data/*/*.json")):
     try:
         with open(grb_data , 'r',encoding = 'utf-8') as reader:
             jf = json.loads(reader.read())
