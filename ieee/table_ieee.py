@@ -36,7 +36,10 @@ for ieee_data in tqdm(glob.glob("./data/*/*/*/*.json")):
                 "content_type":  _ToNull(jf["content_type"]),
                 "contentType":  _ToNull(jf["contentType"]),
                 "htmlAbstractLink":  _ToNull(jf["htmlAbstractLink"]),
-                "journalDisplayDateOfPublication":  _ToDateTime((jf["journalDisplayDateOfPublication"])),
+                try:
+                    "journalDisplayDateOfPublication":  _ToDateTime((jf["journalDisplayDateOfPublication"])),
+                except:
+                    "journalDisplayDateOfPublication":  None,
                 "keywords":  _ToNull(jf["keywords"]),
                 "lastupdate":  _ToNull(jf["lastupdate"]),
                 "onlineDate":  _ToDateTime((jf["onlineDate"])),
@@ -55,4 +58,4 @@ for ieee_data in tqdm(glob.glob("./data/*/*/*/*.json")):
             }
         )
     except:
-        print(_ToNull(jf['articleNumber']))
+        print(ieee_data)
