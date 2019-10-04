@@ -17,9 +17,9 @@ def _ToString(data):
     else:
         return data
 
-for ieee_data in tqdm(glob.glob("./data/*/*/*.json")):
+for grb_data in tqdm(glob.glob("./data/*/*/*.json")):
     try:
-        with open(ieee_data , 'r',encoding = 'utf-8') as reader:
+        with open(grb_data , 'r',encoding = 'utf-8') as reader:
             jf = json.loads(reader.read())
         table.put_item(
         Item={
