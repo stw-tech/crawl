@@ -24,7 +24,7 @@ def _ToString(data):
         return data
 
 for ieee_data in tqdm(glob.glob("./data/*/*/*/*.json")):
-    # try:
+    try:
         with open(ieee_data , 'r',encoding = 'utf-8') as reader:
             jf = json.loads(reader.read())
         try:
@@ -39,6 +39,10 @@ for ieee_data in tqdm(glob.glob("./data/*/*/*/*.json")):
             v = _ToNull(jf["volume"])
         except:
             v = None
+        try:
+            x =_ToNull(jf["xploreDocumentType"])
+        except:
+            x = None
         table.put_item(
         Item={
                 "abstract": _ToNull(jf["abstract"]),
@@ -63,8 +67,8 @@ for ieee_data in tqdm(glob.glob("./data/*/*/*/*.json")):
                 "subType":  _ToNull(jf["subType"]),
                 "title":  _ToNull(jf["title"]),
                 "volume":  v,
-                "xploreDocumentType":  _ToNull(jf["xploreDocumentType"])
+                "xploreDocumentType":  x
             }
         )
-    # except:
-    #     print(ieee_data)
+    except:
+        print(ieee_data)
