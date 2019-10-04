@@ -40,9 +40,9 @@ for ieee_data in tqdm(glob.glob("./data/*/*/*/*.json")):
         except:
             v = None
         try:
-            x =_ToNull(jf["xploreDocumentType"])
+            xplore = _ToNull(jf["xploreDocumentType"])
         except:
-            x = None
+            xplore = None
         table.put_item(
         Item={
                 "abstract": _ToNull(jf["abstract"]),
@@ -67,7 +67,7 @@ for ieee_data in tqdm(glob.glob("./data/*/*/*/*.json")):
                 "subType":  _ToNull(jf["subType"]),
                 "title":  _ToNull(jf["title"]),
                 "volume":  v,
-                "xploreDocumentType":  x
+                "xploreDocumentType": xplore
             }
         )
     # except:
