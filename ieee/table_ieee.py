@@ -43,17 +43,29 @@ for ieee_data in tqdm(glob.glob("./data/*/*/*/*.json")):
             xplore = _ToNull(jf["xploreDocumentType"])
         except:
             xplore = None
+        try:
+            authors = _ToNull(jf["authors"])
+        except:
+            authors = None
+        try:
+            keywords = _ToNull(jf["keywords"])
+        except:
+            keywords = None
+        try:
+            abstract = _ToNull(jf["abstract"])
+        except:
+            abstract = None
         table.put_item(
         Item={
-                "abstract": _ToNull(jf["abstract"]),
+                "abstract": abstract,
                 "articleId": _ToNull(jf["articleId"]),
                 "articleNumber": _ToNull(jf["articleNumber"]),
-                "authors": _ToNull(jf["authors"]),
+                "authors": authors,
                 "content_type":  _ToNull(jf["content_type"]),
                 "contentType":  _ToNull(jf["contentType"]),
                 "htmlAbstractLink":  _ToNull(jf["htmlAbstractLink"]),
                 "journalDisplayDateOfPublication": k,
-                "keywords":  _ToNull(jf["keywords"]),
+                "keywords":  keywords,
                 "lastupdate":  _ToNull(jf["lastupdate"]),
                 "onlineDate":  _ToDateTime((jf["onlineDate"])),
                 "pdfUrl":  _ToNull(jf["pdfUrl"]),

@@ -13,50 +13,24 @@
         "showOpenUrlLink":false,
         "tracked":false
     },
-    "authors":[
-        {
-            "name":"Wei He",
-            "affiliation":"Lab of Physical Analysis and Cryptographic Engineering, Nanyang Technological University, Singapore, 637371",
-            "firstName":"Wei",
-            "lastName":"He",
-            "id":"37085641378"
-        },
-        {
-            "name":"Dirmanto Jap",
-            "affiliation":"School of Physical and Mathematical Sciences, Nanyang Technological University, Singapore, 637371",
-            "firstName":"Dirmanto",
-            "lastName":"Jap",
-            "id":"37085466906"
-        }
-    ],
     "isbn":[
         {
             "format":"Electronic ISBN",
-            "value":"978-1-4799-1925-3"
+            "value":"978-1-4799-7180-0"
         },
         {
-            "format":"USB ISBN",
-            "value":"978-1-4799-1924-6"
+            "format":"Print ISBN",
+            "value":"978-1-4799-7179-4"
         }
     ],
-    "issn":[
-        {
-            "format":"Electronic ISSN",
-            "value":"2160-052X"
-        },
-        {
-            "format":"Print ISSN",
-            "value":"1063-6862"
-        }
-    ],
-    "articleNumber":"7245707",
-    "dbTime":"6 ms",
+    "articleNumber":"7244935",
+    "dbTime":"4 ms",
     "metrics":{
         "citationCountPaper":0,
         "citationCountPatent":0,
-        "totalDownloads":90
+        "totalDownloads":70
     },
-    "pdfUrl":"/stamp/stamp.jsp?tp=&arnumber=7245707",
+    "pdfUrl":"/stamp/stamp.jsp?tp=&arnumber=7244935",
     "purchaseOptions":{
         "showOtherFormatPricingTab":false,
         "showPdfFormatPricingTab":true,
@@ -68,19 +42,19 @@
             {
                 "memberPrice":"$14.95",
                 "nonMemberPrice":"$33.00",
-                "partNumber":"7245707",
-                "type":"PDF/HTML"
+                "partNumber":"7244935",
+                "type":"PDF"
             }
         ]
     },
-    "formulaStrippedArticleTitle":"Dual-rail active protection system against side-channel analysis in FPGAs",
+    "formulaStrippedArticleTitle":"[Front cover]",
     "getProgramTermsAccepted":false,
     "sections":{
         "abstract":"true",
-        "authors":"true",
-        "figures":"true",
+        "authors":"false",
+        "figures":"false",
         "multimedia":"false",
-        "references":"true",
+        "references":"false",
         "citedby":"false",
         "keywords":"true",
         "definitions":"false",
@@ -90,63 +64,30 @@
         "disclaimer":"false",
         "metrics":"true"
     },
-    "standardTitle":"Dual-rail active protection system against side-channel analysis in FPGAs",
+    "title":"[Front cover]",
+    "abstract":"Presents the front cover of the proceedings record.",
+    "pubLink":"/xpl/conhome/7227957/proceeding",
+    "issueLink":"/xpl/tocresult.jsp?isnumber=7244933",
+    "standardTitle":"[Front cover]",
+    "doi":"10.1109/ICSoEB.2015.7244935",
+    "publicationTitle":"2015 International Conference on Solar Energy and Building (ICSoEB)",
+    "startPage":"1",
+    "endPage":"1",
+    "rightsLink":"http://s100.copyright.com/AppDispatchServlet?publisherName=ieee&publication=proceedings&title=%5BFront+cover%5D&isbn=978-1-4799-7179-4&publicationDate=Jan.+2015&author=&ContentID=10.1109/ICSoEB.2015.7244935&orderBeanReset=true&startPage=1&endPage=1&proceedingName=2015+International+Conference+on+Solar+Energy+and+Building+%28ICSoEB%29",
+    "displayPublicationTitle":"2015 International Conference on Solar Energy and Building (ICSoEB)",
+    "pdfPath":"/iel7/7227957/7244933/07244935.pdf",
     "allowComments":false,
-    "pubLink":"/xpl/conhome/7227129/proceeding",
-    "issueLink":"/xpl/tocresult.jsp?isnumber=7245687",
     "keywords":[
         {
             "type":"IEEE Keywords",
             "kwd":[
-                "Rails",
-                "Field programmable gate arrays",
-                "Ciphers",
-                "Mutual information",
-                "Hardware"
-            ]
-        },
-        {
-            "type":"INSPEC: Controlled Indexing",
-            "kwd":[
-                "cryptography",
-                "field programmable gate arrays",
-                "reliability"
-            ]
-        },
-        {
-            "type":"INSPEC: Non-Controlled Indexing",
-            "kwd":[
-                "dual-rail active protection system",
-                "side-channel analysis",
-                "cryptographic module",
-                "side-channel attack",
-                "information leakage",
-                "dual-rail precharge logic",
-                "DPL",
-                "security reliability",
-                "dynamic protection system",
-                "security-sensitive cryptomodules",
-                "SCA-resistant dual-rail style",
-                "threat-response mechanism",
-                "automated dual-rail conversion API",
-                "dual-rail format",
-                "EM based mutual information analysis",
-                "fine-grained surface scan",
-                "field programmable gate arrays",
-                "Virtex-5 FPGA",
-                "SASEBO GII board"
+                "Solar energy",
+                "Buildings",
+                "Conferences",
+                "Sections"
             ]
         }
     ],
-    "title":"Dual-rail active protection system against side-channel analysis in FPGAs",
-    "abstract":"The security of the implemented cryptographic module in hardware has seen severe vulnerabilities against Side-Channel Attack (SCA), which is capable of retrieving hidden things by observing the pattern or quantity of unintentional information leakage. Dual-rail Precharge Logic (DPL) theoretically thwarts side-channel analyses by its low-level compensation manner, while the security reliability of DPLs can only be achieved at high resource expenses and degraded performance. In this paper, we present a dynamic protection system for selectively configuring the security-sensitive crypto modules to SCA-resistant dual-rail style in the scenario that the real-time threat is detected. The threat-response mechanism helps to dynamically balance the security and cost. The system is driven by a set of automated dual-rail conversion APIs for partially transforming the cryptographic module into its dual-rail format, particularly to a highly secure symmetric and interleaved placement. The elevated security grade from the safe to threat mode is validated by EM based mutual information analysis using fine-grained surface scan to a decapsulated Virtex-5 FPGA on SASEBO GII board.",
-    "publicationTitle":"2015 IEEE 26th International Conference on Application-specific Systems, Architectures and Processors (ASAP)",
-    "doi":"10.1109/ASAP.2015.7245707",
-    "displayPublicationTitle":"2015 IEEE 26th International Conference on Application-specific Systems, Architectures and Processors (ASAP)",
-    "pdfPath":"/iel7/7227129/7245687/07245707.pdf",
-    "rightsLink":"http://s100.copyright.com/AppDispatchServlet?publisherName=ieee&publication=proceedings&title=Dual-rail+active+protection+system+against+side-channel+analysis+in+FPGAs&isbn=978-1-4799-1925-3&publicationDate=July+2015&author=Wei+He&ContentID=10.1109/ASAP.2015.7245707&orderBeanReset=true&startPage=64&endPage=65&proceedingName=2015+IEEE+26th+International+Conference+on+Application-specific+Systems%2C+Architectures+and+Processors+%28ASAP%29",
-    "startPage":"64",
-    "endPage":"65",
     "isJournal":false,
     "isConference":true,
     "isBook":false,
@@ -161,60 +102,61 @@
             "name":"Components, Circuits, Devices and Systems"
         },
         {
-            "name":"Computing and Processing"
+            "name":"Engineered Materials, Dielectrics and Plasmas"
         },
         {
-            "name":"Signal Processing and Analysis"
+            "name":"Engineering Profession"
+        },
+        {
+            "name":"Fields, Waves and Electromagnetics"
+        },
+        {
+            "name":"Power, Energy and Industry Applications"
         }
     ],
     "publisher":"IEEE",
-    "isOUP":false,
-    "isDynamicHtml":true,
-    "isFreeDocument":false,
+    "isStandard":false,
+    "isNotDynamicOrStatic":true,
+    "isFreeDocument":true,
+    "isSMPTE":false,
     "isSAE":false,
     "isNow":false,
-    "htmlAbstractLink":"/document/7245707/",
-    "chronOrPublicationDate":"27-29 July 2015",
     "isCustomDenial":false,
-    "conferenceDate":"27-29 July 2015",
-    "isNotDynamicOrStatic":false,
     "isPromo":false,
-    "isStandard":false,
+    "chronOrPublicationDate":"20-21 Jan. 2015",
     "isOpenAccess":false,
-    "isChapter":false,
-    "isStaticHtml":true,
     "isEarlyAccess":false,
+    "isChapter":false,
+    "isStaticHtml":false,
     "isProduct":false,
-    "isEphemera":false,
+    "isEphemera":true,
     "isMorganClaypool":false,
-    "publicationDate":"July 2015",
-    "accessionNumber":"15438570",
-    "htmlLink":"/document/7245707/",
-    "persistentLink":"https://ieeexplore.ieee.org/servlet/opac?punumber=7227129",
-    "isSMPTE":false,
+    "publicationDate":"Jan. 2015",
+    "persistentLink":"https://ieeexplore.ieee.org/servlet/opac?punumber=7227957",
     "isACM":false,
+    "isOUP":false,
+    "isDynamicHtml":false,
+    "htmlAbstractLink":"/document/7244935/",
+    "conferenceDate":"20-21 Jan. 2015",
     "openAccessFlag":"F",
-    "ephemeraFlag":"false",
+    "ephemeraFlag":"true",
     "chorusFlag":"false",
-    "confLoc":"Toronto, ON, Canada",
-    "html_flag":"true",
-    "ml_html_flag":"true",
+    "confLoc":"Sousse, Tunisia",
+    "html_flag":"false",
+    "ml_html_flag":"false",
     "promoFlag":"false",
-    "sourcePdf":"0009.pdf",
+    "sourcePdf":"1ICSoEBproceedingsCover.pdf",
     "content_type":"Conferences",
-    "mlTime":"PT0.040197S",
-    "chronDate":"27-29 July 2015",
-    "xplore-pub-id":"7227129",
-    "isNumber":"7245687",
+    "mlTime":"PT0.013463S",
+    "chronDate":"20-21 Jan. 2015",
+    "isNumber":"7244933",
     "rightsLinkFlag":"1",
     "contentType":"conferences",
-    "publicationNumber":"7227129",
-    "xplore-issue":"7245687",
-    "articleId":"7245707",
+    "publicationNumber":"7227957",
+    "articleId":"7244935",
     "onlineDate":"",
     "publicationYear":"2015",
     "subType":"IEEE Conference",
-    "_value":"IEEE",
     "lastupdate":"2019-06-17",
-    "mediaPath":"/mediastore_new/IEEE/content/media/7227129/7245687/7245707"
+    "mediaPath":""
 }
