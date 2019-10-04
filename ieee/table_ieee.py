@@ -31,6 +31,14 @@ for ieee_data in tqdm(glob.glob("./data/*/*/*/*.json")):
             k = _ToDateTime((jf["journalDisplayDateOfPublication"]))
         except:
             k = None
+        try:
+            s = _ToNull(jf["sponsors"])
+        except:
+            s = None
+        try:
+            v = _ToNull(jf["volume"])
+        except:
+            v = None
         table.put_item(
         Item={
                 "abstract": _ToNull(jf["abstract"]),
@@ -50,11 +58,11 @@ for ieee_data in tqdm(glob.glob("./data/*/*/*/*.json")):
                 "publicationYear":  _ToNull(jf["publicationYear"]),
                 "publisher":  _ToNull(jf["publisher"]),
                 "rightsLink":  _ToNull(jf["rightsLink"]),
-                "sponsors":  _ToNull(jf["sponsors"]),
+                "sponsors":  s,
                 "standardTitle":  _ToNull(jf["standardTitle"]),
                 "subType":  _ToNull(jf["subType"]),
                 "title":  _ToNull(jf["title"]),
-                "volume":  _ToNull(jf["volume"]),
+                "volume":  v,
                 "xploreDocumentType":  _ToNull(jf["xploreDocumentType"])
             }
         )
