@@ -5,7 +5,7 @@ from tqdm import tqdm
 from datetime import datetime
 
 dynamodb = boto3.resource('dynamodb')
-table = dynamodb.Table('ieee')
+table = dynamodb.Table('IEEE')
 def _ToDateTime(data):
     if(data == ""):
         return None
