@@ -11,6 +11,11 @@ def _ToNull(data):
         return None
     else:
         return data
+def _ToString(data):
+    if(data == ""):
+        return "Null"
+    else:
+        return data
 
 for grb_data in glob.glob("./data/*/*.json"):
     with open(grb_data , 'r',encoding = 'utf-8') as reader:
@@ -30,7 +35,7 @@ for grb_data in glob.glob("./data/*/*.json"):
             "periodEnym":  _ToNull(jf['periodEnym']),
             "periodStym":  _ToNull(jf['periodStym']),
             "planAmt":  _ToNull(jf['planAmt']),
-            "planNo":  _ToNull(jf['planNo']),
+            "planNo":  _ToString(jf['planNo']),
             "planOrganCode":  _ToNull(jf['planOrganCode']),
             "planOrganName":  _ToNull(jf['planOrganName']),
             "planYear":  _ToNull(jf['planYear']),
