@@ -55,4 +55,4 @@ for ieee_data in tqdm(glob.glob("./data/*/*/*/*.json")):
             }
         )
     except:
-        print(_ToNull(jf['id']))
+        print(_ToNull(jf['articleNumber']))
