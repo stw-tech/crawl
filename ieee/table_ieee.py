@@ -6,6 +6,7 @@ from datetime import datetime
 
 dynamodb = boto3.resource('dynamodb')
 table = dynamodb.Table('IEEE')
+fail =[]
 def _ToDateTime(data):
     if(data == ""):
         return None
@@ -23,7 +24,7 @@ def _ToString(data):
     else:
         return data
 
-for ieee_data in tqdm(glob.glob("./data/*/*/*/*.json")):
+for ieee_data in tqdm(glob.glob("./crawl/ieee/data.json")):
     try:
         with open(ieee_data , 'r',encoding = 'utf-8') as reader:
             jf = json.loads(reader.read())
@@ -90,3 +91,12 @@ for ieee_data in tqdm(glob.glob("./data/*/*/*/*.json")):
         )
     except:
         print(ieee_data)
+        fail.append(ieee_data+'\n')
+    
+fp = open("fail.txt", "a")
+# 將 lines 所有內容寫入到檔案
+
+fp.writelines(fail)
+        
+# 關閉檔案
+fp.close()
