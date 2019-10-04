@@ -5,12 +5,14 @@ import time
 import os
 
 
-start_year = 1950
+start_year = 1900
 end_year = 2019
+save_dir = 'E:/ssbi_dataset/pubmed'
 
 def crawl(year, start_num):
 
     Entrez.email = "luk2310405@gmail.com"
+    time.sleep(1)
     handle = Entrez.esearch(db = "pubmed", term= '({}[Date - Publication] : {}[Date - Publication])'.format(year, year), usehistory = 'y')
 
     record = Entrez.read(handle)
@@ -20,27 +22,29 @@ def crawl(year, start_num):
 
     batch_size = 1000
     print('total num of crawling data: {}, finish crawled: {}, left crawled: {}'. format(total_num, start_num, total_num-start_num))
-    print('>>> crawling data in {} year' .format(year))
-    for start in range(start_num, total_num, batch_size):
+    if (total_num-start_num) != 0:
 
-        end = min(total_num, start + batch_size)
-        print('total records: {}, downloading records {} to {} '.format(total_num, start+1, end))
-        try:
-            fetch_handle = Entrez.efetch(db = 'pubmed', retmode = 'xml', retstart = start, retmax = batch_size, webenv = webenv, query_key = query_key)
-        except urllib.error.HTTPError :
-            print(' HTTP Error 400: Bad Request')
-            time.sleep(60)
+        print('>>> crawling data in {} year'.format(year))
+        for start in range(start_num, total_num, batch_size):
 
-        xml = fetch_handle.read()
-        parse_json = xmltojson.parse(xml)
-        data_dict = json.loads(parse_json)
+            end = min(total_num, start + batch_size)
+            print('total records: {}, downloading records {} to {} '.format(total_num, start+1, end))
+            try:
+                fetch_handle = Entrez.efetch(db = 'pubmed', retmode = 'xml', retstart = start, retmax = batch_size, webenv = webenv, query_key = query_key)
+            except urllib.error.HTTPError :
+                print(' HTTP Error 400: Bad Request')
+                time.sleep(60)
 
-        save_json(data_dict, year, start+1, end)
-        fetch_handle.close()
+            xml = fetch_handle.read()
+            parse_json = xmltojson.parse(xml)
+            data_dict = json.loads(parse_json)
+
+            save_json(data_dict, year, start+1, end)
+            fetch_handle.close()
 
 def save_json(crawl_data, year, start, end):
 
-    path = os.path.join('../newdata/', str(year))
+    path = os.path.join(save_dir, str(year))
 
     if not os.path.exists(path):
         os.makedirs(path)
@@ -51,9 +55,8 @@ def save_json(crawl_data, year, start, end):
 
 def check_crawled(year):
 
-    print('>>> checking data in {} year are crawled or not'.format(year))
-    ck_dir = '../newdata'
-    ck_path = os.path.join(ck_dir, str(year))
+    print('>>> checking data in {} year is crawled or not'.format(year))
+    ck_path = os.path.join(save_dir, str(year))
 
     if not os.path.exists(ck_path):
         start_num = 0
@@ -70,6 +73,5 @@ if __name__ == "__main__":
 
     for year in range(start_year, end_year+1):
 
-        print('>>> crawl PubMed data from {} year to {} year'.format(start_year, end_year))
         start_num = check_crawled(year)
         patent = crawl(year, start_num)
