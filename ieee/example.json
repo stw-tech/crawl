@@ -1,0 +1,265 @@
+{
+    "userInfo":{
+        "institute":false,
+        "member":false,
+        "individual":false,
+        "guest":false,
+        "subscribedContent":false,
+        "fileCabinetContent":false,
+        "fileCabinetUser":false,
+        "institutionalFileCabinetUser":false,
+        "showPatentCitations":true,
+        "showGet802Link":false,
+        "showOpenUrlLink":false,
+        "tracked":false
+    },
+    "authors":[
+        {
+            "name":"Miri Blau",
+            "affiliation":"Applied Physics Department, The Hebrew University of Jerusalem, Jerusalem, Israel",
+            "bio":{
+                "p":[
+                    "Miri Blau received the B.Sc. degree in electro optics engineering from the Jerusalem College of Technology, Jerusalem, Israel, in 2010. She is currently working toward the Ph.D. degree with the Department of Applied Physics, Hebrew University, Jerusalem, Israel, under the supervision of Prof. Marom. Her research deals with space division multiplexing for overcoming the capacity crunch accompanied by lower implementation costs than single-mode-based optical communications."
+                ]
+            },
+            "firstName":"Miri",
+            "lastName":"Blau",
+            "orcid":"0000-0001-8833-8986",
+            "id":"38516087200"
+        },
+        {
+            "name":"Dan M. Marom",
+            "affiliation":"Applied Physics Department, The Hebrew University of Jerusalem, Jerusalem, Israel",
+            "bio":{
+                "p":[
+                    "Dan M. Marom (S\u201999\u2013M\u201900\u2013SM\u201908) received the B.Sc. degree in mechanical engineering and the M.Sc. degree in electrical engineering, both from Tel-Aviv University, Tel Aviv, Israel, in 1989 and 1995, respectively, and received the Ph.D. degree in electrical engineering from the University of California, San Diego (UCSD), San Diego, CA, USA, in 2000. From 2000 until 2005, he was a Member of the Technical Staff with the Advanced Photonics Research Department, Bell Laboratories, Lucent Technologies, where he invented and headed the research and development efforts of MEMS-based wavelength-selective switching solutions for optical networks. Since 2005, he has been with the Applied Physics Department, The Hebrew University of Jerusalem, Israel, where he is currently serving as Department Chair and leads the Photonics Devices group. His research interests include creating photonic devices and sub-systems for switching and manipulating optical signals in guided-wave and free-space optics solutions using light modulating devices, nonlinear optics, and compound materials.",
+                    "Prof. Marom is a Fellow of the Optical Society of America, a Senior Member of the IEEE Photonics Society and an Elected Member of that Society's Board of Governors. He was the recipient of the IEEE Photonics Society Distinguished Lecturer Award in 2014 and 2015. From 1996 to 2000, he was a Fannie and John Hertz Foundation Graduate Fellow with UCSD, and was a Peter Brojde Scholar in 2006\u20132007. He was one of two Senior Editors for Photonics Technology Letters, handling all photonic-device-related submissions. He serves as Steering Committee Chair for the International Conference on Optical MEMS and Nanophotonics."
+                ]
+            },
+            "firstName":"Dan M.",
+            "lastName":"Marom",
+            "orcid":"0000-0002-8740-5419",
+            "id":"37270999900"
+        }
+    ],
+    "issn":[
+        {
+            "format":"Print ISSN",
+            "value":"1077-260X"
+        },
+        {
+            "format":"Electronic ISSN",
+            "value":"1558-4542"
+        }
+    ],
+    "articleNumber":"8719968",
+    "dbTime":"3 ms",
+    "metrics":{
+        "citationCountPaper":0,
+        "citationCountPatent":0,
+        "totalDownloads":184
+    },
+    "sponsors":[
+        {
+            "packageNumber":0,
+            "name":"IEEE Photonics Society",
+            "url":"http://www.PhotonicsSociety.org"
+        }
+    ],
+    "pdfUrl":"/stamp/stamp.jsp?tp=&arnumber=8719968",
+    "purchaseOptions":{
+        "showOtherFormatPricingTab":false,
+        "showPdfFormatPricingTab":true,
+        "pdfPricingInfoAvailable":true,
+        "otherPricingInfoAvailable":false,
+        "mandatoryBundle":false,
+        "optionalBundle":false,
+        "pdfPricingInfo":[
+            {
+                "memberPrice":"$14.95",
+                "nonMemberPrice":"$33.00",
+                "partNumber":"8719968",
+                "type":"PDF/HTML"
+            }
+        ]
+    },
+    "formulaStrippedArticleTitle":"Wavelength Demultiplexer Designs Operating Over Multiple Spatial Modes of a Rectangular Waveguide",
+    "getProgramTermsAccepted":false,
+    "sections":{
+        "abstract":"true",
+        "authors":"true",
+        "figures":"true",
+        "multimedia":"false",
+        "references":"true",
+        "citedby":"false",
+        "keywords":"true",
+        "definitions":"false",
+        "algorithm":"false",
+        "supplements":"false",
+        "footnotes":"true",
+        "disclaimer":"false",
+        "metrics":"true"
+    },
+    "title":"Wavelength Demultiplexer Designs Operating Over Multiple Spatial Modes of a Rectangular Waveguide",
+    "abstract":"Wavelength demultiplexers are instrumental in wavelength division multiplexing (WDM) communications. In advance of space-division multiplexing (SDM) WDM communications, we investigate wavelength multiplexer/demultiplexer designs operating over multiplexed spatial modes simultaneously, when the modes are arranged along one transverse direction of a rectangular waveguide. The demultiplexer waveguides' modes match those of rectangular core fibers, enabling simple and efficient edge-coupling. We describe the challenge of demultiplexing mode division multiplexed (MDM) channels, and suggest guided optics solutions for its implementation. We analyze the spatial-spectral interplay at output waveguide coupling due to mode dependent phase delays in arrayed waveguide grating router demultiplexer design, and offer low mode dependent loss solutions. The proposed schemes allow for efficient and compact MDM-enabled WDM multiplexing, paving the way to SDM-WDM communication networks.",
+    "allowComments":false,
+    "pubLink":"/xpl/RecentIssue.jsp?punumber=2944",
+    "issueLink":"/xpl/tocresult.jsp?isnumber=8764693",
+    "standardTitle":"Wavelength Demultiplexer Designs Operating Over Multiple Spatial Modes of a Rectangular Waveguide",
+    "keywords":[
+        {
+            "type":"IEEE Keywords",
+            "kwd":[
+                "Wavelength division multiplexing",
+                "Optical fiber communication",
+                "Optical fiber dispersion",
+                "Optical waveguides",
+                "Demultiplexing"
+            ]
+        },
+        {
+            "type":"INSPEC: Controlled Indexing",
+            "kwd":[
+                "arrayed waveguide gratings",
+                "demultiplexing",
+                "optical communication equipment",
+                "optical design techniques",
+                "optical fibre networks",
+                "rectangular waveguides",
+                "space division multiplexing",
+                "wavelength division multiplexing"
+            ]
+        },
+        {
+            "type":"INSPEC: Non-Controlled Indexing",
+            "kwd":[
+                "multiple spatial modes",
+                "rectangular waveguide",
+                "space-division multiplexing WDM communications",
+                "wavelength multiplexer/demultiplexer designs",
+                "multiplexed spatial modes",
+                "demultiplexer waveguides",
+                "rectangular core fibers",
+                "output waveguide coupling",
+                "mode dependent phase delays",
+                "router demultiplexer design",
+                "low mode dependent loss solutions",
+                "wavelength division multiplexing communications",
+                "wavelength demultiplexer designs operation",
+                "demultiplexing mode division multiplexed channels",
+                "arrayed waveguide grating router demultiplexer design",
+                "DM-enabled WDM multiplexing efficiency",
+                "edge-coupling efficiency",
+                "SDM-WDM communication networks"
+            ]
+        },
+        {
+            "type":"Author Keywords ",
+            "kwd":[
+                "Fiber optics and optical communications",
+                "planar lightwave circuits",
+                "multiplexing"
+            ]
+        }
+    ],
+    "doi":"10.1109/JSTQE.2019.2909166",
+    "publicationTitle":"IEEE Journal of Selected Topics in Quantum Electronics",
+    "endPage":"11",
+    "displayPublicationTitle":"IEEE Journal of Selected Topics in Quantum Electronics",
+    "pdfPath":"/iel7/2944/8764693/08719968.pdf",
+    "startPage":"1",
+    "rightsLink":"http://s100.copyright.com/AppDispatchServlet?publisherName=ieee&publication=1077-260X&title=Wavelength+Demultiplexer+Designs+Operating+Over+Multiple+Spatial+Modes+of+a+Rectangular+Waveguide&isbn=&publicationDate=July-Aug.+2020&author=Miri+Blau&ContentID=10.1109/JSTQE.2019.2909166&orderBeanReset=true&startPage=1&endPage=11&volumeNum=26&issueNum=4",
+    "isJournal":true,
+    "isConference":false,
+    "isBook":false,
+    "dateOfInsertion":"16 July 2019",
+    "isGetArticle":false,
+    "isGetAddressInfoCaptured":false,
+    "isMarketingOptIn":false,
+    "xploreDocumentType":"Journals & Magazine",
+    "applyOUPFilter":false,
+    "pubTopics":[
+        {
+            "name":"Engineered Materials, Dielectrics and Plasmas"
+        },
+        {
+            "name":"Photonics and Electrooptics"
+        }
+    ],
+    "publisher":"IEEE",
+    "isStandard":false,
+    "htmlAbstractLink":"/document/8719968/",
+    "isFreeDocument":false,
+    "isSAE":false,
+    "isNow":false,
+    "isCustomDenial":false,
+    "isPromo":false,
+    "isNotDynamicOrStatic":false,
+    "journalDisplayDateOfPublication":"22 May 2019",
+    "isOpenAccess":false,
+    "isProduct":false,
+    "isEphemera":false,
+    "isMorganClaypool":false,
+    "volume":"26",
+    "issue":"4",
+    "isStaticHtml":false,
+    "isEarlyAccess":false,
+    "isChapter":false,
+    "publicationDate":"July-Aug. 2020",
+    "accessionNumber":"18900048",
+    "htmlLink":"/document/8719968/",
+    "externalId":"4400111",
+    "persistentLink":"https://ieeexplore.ieee.org/servlet/opac?punumber=2944",
+    "isSMPTE":false,
+    "isACM":false,
+    "chronOrPublicationDate":"July-Aug.  2020",
+    "isOUP":false,
+    "isDynamicHtml":true,
+    "fundingAgencies":{
+        "fundingAgency":[
+            {
+                "fundingId":"",
+                "fundingName":"European Community's Seventh Framework Program"
+            },
+            {
+                "fundingId":"",
+                "fundingName":"INSPACE"
+            },
+            {
+                "fundingId":"10.13039/501100003977",
+                "fundingName":"Israel Science Foundation"
+            },
+            {
+                "fundingId":"",
+                "fundingName":"Shulamit Aloni Fellowship"
+            },
+            {
+                "fundingId":"10.13039/501100006245",
+                "fundingName":"Ministry of Science and Technology, Israel"
+            }
+        ]
+    },
+    "openAccessFlag":"F",
+    "ephemeraFlag":"false",
+    "chorusFlag":"false",
+    "html_flag":"false",
+    "ml_html_flag":"true",
+    "promoFlag":"false",
+    "sourcePdf":"jstqe-blau-2909166-x.pdf",
+    "content_type":"Journals & Magazines",
+    "mlTime":"PT0.049577S",
+    "chronDate":"July-Aug.  2020",
+    "xplore-pub-id":"2944",
+    "isNumber":"8764693",
+    "rightsLinkFlag":"1",
+    "contentType":"periodicals",
+    "publicationNumber":"2944",
+    "xplore-issue":"8764693",
+    "articleId":"8719968",
+    "onlineDate":"22 May 2019",
+    "publicationYear":"2020",
+    "subType":"IEEE Journal",
+    "_value":"Traditional",
+    "lastupdate":"2019-09-03",
+    "mediaPath":"/mediastore_new/IEEE/content/media/2944/8764693/8719968"
+}
