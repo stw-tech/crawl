@@ -24,7 +24,7 @@ def _ToString(data):
     else:
         return data
 
-for ieee_data in tqdm(glob.glob("./crawl/ieee/data.json")):
+for ieee_data in tqdm(glob.glob("./data/*/*/*/*.json")):
     try:
         with open(ieee_data , 'r',encoding = 'utf-8') as reader:
             jf = json.loads(reader.read())
