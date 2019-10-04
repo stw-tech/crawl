@@ -27,6 +27,10 @@ for ieee_data in tqdm(glob.glob("./data/*/*/*/*.json")):
     try:
         with open(ieee_data , 'r',encoding = 'utf-8') as reader:
             jf = json.loads(reader.read())
+        try:
+            k = _ToDateTime((jf["journalDisplayDateOfPublication"]))
+        except:
+            k = None
         table.put_item(
         Item={
                 "abstract": _ToNull(jf["abstract"]),
@@ -36,10 +40,7 @@ for ieee_data in tqdm(glob.glob("./data/*/*/*/*.json")):
                 "content_type":  _ToNull(jf["content_type"]),
                 "contentType":  _ToNull(jf["contentType"]),
                 "htmlAbstractLink":  _ToNull(jf["htmlAbstractLink"]),
-                try:
-                    "journalDisplayDateOfPublication":  _ToDateTime((jf["journalDisplayDateOfPublication"])),
-                except:
-                    "journalDisplayDateOfPublication":  None,
+                "journalDisplayDateOfPublication": k,
                 "keywords":  _ToNull(jf["keywords"]),
                 "lastupdate":  _ToNull(jf["lastupdate"]),
                 "onlineDate":  _ToDateTime((jf["onlineDate"])),
