@@ -1,0 +1,221 @@
+{
+    "userInfo":{
+        "customerNameRaw":"National Taiwan University",
+        "institute":true,
+        "member":false,
+        "individual":false,
+        "guest":false,
+        "subscribedContent":false,
+        "fileCabinetContent":false,
+        "fileCabinetUser":false,
+        "institutionalFileCabinetUser":false,
+        "products":"IBM|EBOOKS:1872:2015|MITP:1943:2019|NOW:1872:2019|MCCIS7|MCCIS8|IEL|MCSYNTH7|MCSYNTH8|VDE|NOKIA BELL LABS|",
+        "instType":"Academic",
+        "userIds":[
+            5659
+        ],
+        "showPatentCitations":true,
+        "showGet802Link":true,
+        "openUrlImgLoc":"https://www.lib.ntu.edu.tw/img/NTU_LR_icon.jpg",
+        "openUrlLink":"https://ntu.primo.exlibrisgroup.com/discovery/openurl?institution=886NTU_INST&vid=886NTU_INST:886NTU_INST&",
+        "openUrlTxt":"Find It@NTU",
+        "showOpenUrlLink":true,
+        "marketingInfoCaptured":false,
+        "tracked":false
+    },
+    "authors":[
+        {
+            "name":"HaoHao Zhou",
+            "affiliation":"Science and Technology on Information Systems Engineering Laboratory, National University of Defense Technology, Changsha, China",
+            "firstName":"HaoHao",
+            "lastName":"Zhou",
+            "id":"37085743889"
+        },
+        {
+            "name":"Su Deng",
+            "affiliation":"Science and Technology on Information Systems Engineering Laboratory, National University of Defense Technology, Changsha, China",
+            "firstName":"Su",
+            "lastName":"Deng",
+            "id":"37536075500"
+        },
+        {
+            "name":"HongBin Huang",
+            "affiliation":"Science and Technology on Information Systems Engineering Laboratory, National University of Defense Technology, Changsha, China",
+            "firstName":"HongBin",
+            "lastName":"Huang",
+            "id":"37289497800"
+        },
+        {
+            "name":"YaHui Wu",
+            "affiliation":"Science and Technology on Information Systems Engineering Laboratory, National University of Defense Technology, Changsha, China",
+            "firstName":"YaHui",
+            "lastName":"Wu",
+            "id":"37085657406"
+        }
+    ],
+    "isbn":[
+        {
+            "format":"Electronic ISBN",
+            "value":"978-1-4799-5927-3"
+        }
+    ],
+    "articleNumber":"7116799",
+    "dbTime":"5 ms",
+    "metrics":{
+        "citationCountPaper":2,
+        "citationCountPatent":0,
+        "totalDownloads":182
+    },
+    "pdfUrl":"/stamp/stamp.jsp?tp=&arnumber=7116799",
+    "purchaseOptions":{
+        "showOtherFormatPricingTab":false,
+        "showPdfFormatPricingTab":true,
+        "pdfPricingInfoAvailable":true,
+        "otherPricingInfoAvailable":false,
+        "mandatoryBundle":false,
+        "optionalBundle":false,
+        "pdfPricingInfo":[
+            {
+                "memberPrice":"$14.95",
+                "nonMemberPrice":"$33.00",
+                "partNumber":"7116799",
+                "type":"PDF/HTML"
+            }
+        ],
+        "openUrlFullLink":"https://ntu.primo.exlibrisgroup.com/discovery/openurl?institution=886NTU_INST&vid=886NTU_INST:886NTU_INST&&url_ver=Z39.88-2004&rfr_id=info:sid/IEEE.org:XPLORE&rft_id=info:doi/10.1109/SYSCON.2015.7116799&url_ctx_fmt=info:ofi/fmt:kev:mtx:ctx&rft_val_fmt=info:ofi/fmt:kev:mtx:journal&rft.atitle=Resource allocation in cloud computing based on clustering method&rft.jtitle=2015 Annual IEEE Systems Conference (SysCon) Proceedings&rft.date=2015&rft.spage=489&rft.epage=494&rft.au=HaoHao Zhou&rft.aulast=HaoHao Zhou&rft.isbn=978-1-4799-5927-3"
+    },
+    "formulaStrippedArticleTitle":"Resource allocation in cloud computing based on clustering method",
+    "getProgramTermsAccepted":false,
+    "sections":{
+        "abstract":"true",
+        "authors":"true",
+        "figures":"true",
+        "multimedia":"false",
+        "references":"true",
+        "citedby":"true",
+        "keywords":"true",
+        "definitions":"false",
+        "algorithm":"false",
+        "supplements":"false",
+        "footnotes":"false",
+        "disclaimer":"false",
+        "metrics":"true"
+    },
+    "title":"Resource allocation in cloud computing based on clustering method",
+    "abstract":"Cloud computing is a computing model based on Internet and computer technology. With the rapid development of cloud computing, scheduling of computing resources is more and more important to cloud systems. Most of the existing researches concerned resource allocation as a problem of task scheduling which is a paradigm of cloud service. In this paper, we consider another paradigm that is user-oriented. In this case, users apply resources from the cloud according to their demands with time interval and amount of computing and we propose a scheduling algorithm based on spectral clustering method through converting the scheduling problem to clustering problem. Experiments show that the scheduling algorithm can obtain fine resource utilization on the premise of QoS.",
+    "allowComments":false,
+    "standardTitle":"Resource allocation in cloud computing based on clustering method",
+    "publicationTitle":"2015 Annual IEEE Systems Conference (SysCon) Proceedings",
+    "doi":"10.1109/SYSCON.2015.7116799",
+    "startPage":"489",
+    "endPage":"494",
+    "displayPublicationTitle":"2015 Annual IEEE Systems Conference (SysCon) Proceedings",
+    "pdfPath":"/iel7/7112393/7116715/07116799.pdf",
+    "rightsLink":"http://s100.copyright.com/AppDispatchServlet?publisherName=ieee&publication=proceedings&title=Resource+allocation+in+cloud+computing+based+on+clustering+method&isbn=978-1-4799-5927-3&publicationDate=April+2015&author=HaoHao+Zhou&ContentID=10.1109/SYSCON.2015.7116799&orderBeanReset=true&startPage=489&endPage=494&proceedingName=2015+Annual+IEEE+Systems+Conference+%28SysCon%29+Proceedings",
+    "keywords":[
+        {
+            "type":"IEEE Keywords",
+            "kwd":[
+                "Resource management",
+                "Cloud computing",
+                "Quality of service",
+                "Scheduling algorithms",
+                "Scheduling",
+                "Algorithm design and analysis"
+            ]
+        },
+        {
+            "type":"INSPEC: Controlled Indexing",
+            "kwd":[
+                "cloud computing",
+                "resource allocation"
+            ]
+        },
+        {
+            "type":"INSPEC: Non-Controlled Indexing",
+            "kwd":[
+                "resource allocation",
+                "cloud computing",
+                "task scheduling algorithm",
+                "spectral clustering method"
+            ]
+        },
+        {
+            "type":"Author Keywords ",
+            "kwd":[
+                "Cloud computing",
+                "scheduling",
+                "clustering",
+                "resource allocation"
+            ]
+        }
+    ],
+    "pubLink":"/xpl/conhome/7112393/proceeding",
+    "issueLink":"/xpl/tocresult.jsp?isnumber=7116715",
+    "isJournal":false,
+    "isConference":true,
+    "isBook":false,
+    "dateOfInsertion":"01 October 2015",
+    "isGetArticle":false,
+    "isGetAddressInfoCaptured":false,
+    "isMarketingOptIn":false,
+    "xploreDocumentType":"Conference Publication",
+    "applyOUPFilter":false,
+    "pubTopics":[
+        {
+            "name":"General Topics for Engineers"
+        }
+    ],
+    "publisher":"IEEE",
+    "isStandard":false,
+    "isSAE":false,
+    "isNow":false,
+    "isOpenAccess":false,
+    "isChapter":false,
+    "isStaticHtml":true,
+    "isProduct":false,
+    "isEphemera":false,
+    "isMorganClaypool":false,
+    "isEarlyAccess":false,
+    "publicationDate":"April 2015",
+    "accessionNumber":"15479996",
+    "htmlLink":"/document/7116799/",
+    "persistentLink":"https://ieeexplore.ieee.org/servlet/opac?punumber=7112393",
+    "chronOrPublicationDate":"13-16 April 2015",
+    "isSMPTE":false,
+    "isFreeDocument":false,
+    "xploreNote":"This article was mistakenly omitted from the original submission to IEEE Xplore because it was incorrectly tagged as not presented at the conference.",
+    "isACM":false,
+    "isCustomDenial":false,
+    "isPromo":false,
+    "conferenceDate":"13-16 April 2015",
+    "isNotDynamicOrStatic":false,
+    "htmlAbstractLink":"/document/7116799/",
+    "isOUP":false,
+    "isDynamicHtml":true,
+    "openAccessFlag":"F",
+    "ephemeraFlag":"false",
+    "chorusFlag":"false",
+    "confLoc":"Vancouver, BC, Canada",
+    "html_flag":"true",
+    "ml_html_flag":"true",
+    "promoFlag":"false",
+    "sourcePdf":"1570064543.pdf",
+    "content_type":"Conferences",
+    "mlTime":"PT0.043142S",
+    "chronDate":"13-16 April 2015",
+    "xplore-pub-id":"7112393",
+    "isNumber":"7116715",
+    "rightsLinkFlag":"1",
+    "contentType":"conferences",
+    "publicationNumber":"7112393",
+    "citationCount":"2",
+    "xplore-issue":"7116715",
+    "articleId":"7116799",
+    "onlineDate":"",
+    "publicationYear":"2015",
+    "subType":"IEEE Conference",
+    "_value":"IEEE",
+    "lastupdate":"2019-06-17",
+    "mediaPath":"/mediastore_new/IEEE/content/media/7112393/7116715/7116799"
+}
