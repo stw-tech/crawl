@@ -1,40 +1,45 @@
 import boto3
 import json
+import glob
 
 
 dynamodb = boto3.resource('dynamodb')
 table = dynamodb.Table('GRB')
 
+def _ToNull(data):
+    if(data == ""):
+        return None
+    else:
+        return data
 
-with open('./grb/example.json' , 'r',encoding = 'utf-8') as reader:
-    jf = json.loads(reader.read())
-
-
-table.put_item(
-   Item={
-        "abstractC": jf['abstractC'],
-        "abstractE": jf['abstractE'],
-        "excuOrganName": jf['excuOrganName'],
-        "host1NameC": jf['host1NameC'],
-        "hostNameList": jf['hostNameList'],
-        "id": jf['id'],
-        "keyword": jf['keyword'],
-        "keywordC": jf['keywordC'],
-        "keywordE": jf['keywordE'],
-        "pengDesc": jf['pengDesc'],
-        "periodEnym": jf['periodEnym'],
-        "periodStym": jf['periodStym'],
-        "planAmt": jf['planAmt'],
-        "planNo": jf['planNo'],
-        "planOrganCode": jf['planOrganCode'],
-        "planOrganName": jf['planOrganName'],
-        "planYear": jf['planYear'],
-        "pnchDesc": jf['pnchDesc'],
-        "projkey": jf['projkey'],
-        "researchAttribute": jf['researchAttribute'],
-        "researchField1": jf['researchField1'],
-        "researchField2": jf['researchField2'],
-        "researchType": jf['researchType'],
-        "title": jf['title']
-    }
-)
+for grb_data in glob.glob("./data/*/*.json"):
+    with open(grb_data , 'r',encoding = 'utf-8') as reader:
+        jf = json.loads(reader.read())
+    table.put_item(
+    Item={
+            "abstractC": _ToNull(jf['abstractC']),
+            "abstractE":  _ToNull(jf['abstractE']),
+            "excuOrganName":  _ToNull(jf['excuOrganName']),
+            "host1NameC":  _ToNull(jf['host1NameC']),
+            "hostNameList":  _ToNull(jf['hostNameList']),
+            "id":  _ToNull(jf['id']),
+            "keyword":  _ToNull(jf['keyword']),
+            "keywordC":  _ToNull(jf['keywordC']),
+            "keywordE":  _ToNull(jf['keywordE']),
+            "pengDesc":  _ToNull(jf['pengDesc']),
+            "periodEnym":  _ToNull(jf['periodEnym']),
+            "periodStym":  _ToNull(jf['periodStym']),
+            "planAmt":  _ToNull(jf['planAmt']),
+            "planNo":  _ToNull(jf['planNo']),
+            "planOrganCode":  _ToNull(jf['planOrganCode']),
+            "planOrganName":  _ToNull(jf['planOrganName']),
+            "planYear":  _ToNull(jf['planYear']),
+            "pnchDesc":  _ToNull(jf['pnchDesc']),
+            "projkey":  _ToNull(jf['projkey']),
+            "researchAttribute":  _ToNull(jf['researchAttribute']),
+            "researchField1":  _ToNull(jf['researchField1']),
+            "researchField2":  _ToNull(jf['researchField2']),
+            "researchType":  _ToNull(jf['researchType']),
+            "title":  _ToNull(jf['title'])
+        }
+    )
