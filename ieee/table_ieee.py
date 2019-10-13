@@ -51,7 +51,14 @@ for ieee_data in tqdm(glob.glob("./data/*/*/*/*.json")):
         try:
             keywords = _ToNull(jf["keywords"])
         except:
-            keywords = None
+            keywords = [
+                {
+                "kwd": [
+                    "None"
+                ],
+                "type": "None"
+                }
+            ]
         try:
             abstract = _ToNull(jf["abstract"])
         except:
@@ -144,27 +151,7 @@ for ieee_data in tqdm(glob.glob("./data/*/*/*/*.json")):
             }
         )
     except Exception as e:
-        print(abstract)
-        print(articleId)
-        print(articleNumber)
-        print(content_type)
-        print(contentType)
-        print(htmlAbstractLink)
-        print(k)
-        print(_ToNull(jf["lastupdate"]))
-        print(onlineDate)
-        print(pdfUrl)
-        print(persistentLink)
-        print(publicationTitle)
-        print(publicationYear)
-        print(publisher)
-        print(rightsLink)
-        print(s)
-        print(standardTitle)
-        print(subType)
-        print(xplore)
-        print(v)
-        print(title)
+        print(e)
         #print(ieee_data)
         #fail.append(ieee_data+'\n')
     
