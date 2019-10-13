@@ -5,7 +5,7 @@ from tqdm import tqdm
 from datetime import datetime
 
 dynamodb = boto3.resource('dynamodb')
-table = dynamodb.Table('IEEE')
+table = dynamodb.Table('ieee')
 fail =[]
 def _ToDateTime(data):
     if(data == ""):
@@ -141,12 +141,30 @@ for ieee_data in tqdm(glob.glob("./data/*/*/*/*.json")):
                 "xploreDocumentType": xplore,
                 "volume":  v,
                 "title":  title
-               
-                
             }
         )
     except Exception as e:
-        print(e)
+        print(abstract)
+        print(articleId)
+        print(articleNumber)
+        print(content_type)
+        print(contentType)
+        print(htmlAbstractLink)
+        print(k)
+        print(_ToNull(jf["lastupdate"]))
+        print(onlineDate)
+        print(pdfUrl)
+        print(persistentLink)
+        print(publicationTitle)
+        print(publicationYear)
+        print(publisher)
+        print(rightsLink)
+        print(s)
+        print(standardTitle)
+        print(subType)
+        print(xplore)
+        print(v)
+        print(title)
         #print(ieee_data)
         #fail.append(ieee_data+'\n')
     
