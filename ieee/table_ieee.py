@@ -60,28 +60,84 @@ for ieee_data in tqdm(glob.glob("./data/*/*/*/*.json")):
             title = _ToNull(jf["title"])
         except:
             title = None
+        try:
+            articleId = _ToNull(jf["articleId"])
+        except:
+            articleId = None
+        try:
+            articleNumber = _ToNull(jf["articleNumber"])
+        except:
+            articleNumber = None
+        try:
+            content_type = _ToNull(jf["content_type"])
+        except:
+            content_type = None
+        try:
+            contentType = _ToNull(jf["contentType"])
+        except:
+            contentType = None
+        try:
+            htmlAbstractLink = _ToNull(jf["htmlAbstractLink"])
+        except:
+            htmlAbstractLink = None
+        try:
+            onlineDate = _ToDateTime((jf["onlineDate"]))
+        except:
+            onlineDate = None
+        try:
+            pdfUrl = _ToNull(jf["pdfUrl"])
+        except:
+            pdfUrl = None
+        try:
+            persistentLink = _ToNull(jf["persistentLink"])
+        except:
+            persistentLink = None
+        try:
+            publicationTitle = _ToNull(jf["publicationTitle"])
+        except:
+            publicationTitle = None
+        try:
+            publicationYear = _ToNull(jf["publicationYear"])
+        except:
+            publicationYear = None
+        try:
+            publisher = _ToNull(jf["publisher"])
+        except:
+            publisher = None
+        try:
+            rightsLink = _ToNull(jf["rightsLink"])
+        except:
+            rightsLink = None
+        try:
+            standardTitle = _ToNull(jf["standardTitle"])
+        except:
+            standardTitle = None
+        try:
+            subType = _ToNull(jf["subType"])
+        except:
+            subType = None
         table.put_item(
         Item={
                 "abstract": abstract,
-                "articleId": _ToNull(jf["articleId"]),
-                "articleNumber": _ToNull(jf["articleNumber"]),
+                "articleId": articleId,
+                "articleNumber": articleNumber,
                 "authors": authors,
-                "content_type":  _ToNull(jf["content_type"]),
-                "contentType":  _ToNull(jf["contentType"]),
-                "htmlAbstractLink":  _ToNull(jf["htmlAbstractLink"]),
+                "content_type":  content_type,
+                "contentType":  contentType,
+                "htmlAbstractLink":  htmlAbstractLink,
                 "journalDisplayDateOfPublication": k,
                 "keywords":  keywords,
                 "lastupdate":  _ToNull(jf["lastupdate"]),
-                "onlineDate":  _ToDateTime((jf["onlineDate"])),
-                "pdfUrl":  _ToNull(jf["pdfUrl"]),
-                "persistentLink":  _ToNull(jf["persistentLink"]),
-                "publicationTitle":  _ToNull(jf["publicationTitle"]),
-                "publicationYear":  _ToNull(jf["publicationYear"]),
-                "publisher":  _ToNull(jf["publisher"]),
-                "rightsLink":  _ToNull(jf["rightsLink"]),
+                "onlineDate":  onlineDate,
+                "pdfUrl":  pdfUrl,
+                "persistentLink": persistentLink,
+                "publicationTitle":  publicationTitle,
+                "publicationYear":  publicationYear,
+                "publisher":  publisher,
+                "rightsLink":  rightsLink,
                 "sponsors":  s,
-                "standardTitle":  _ToNull(jf["standardTitle"]),
-                "subType":  _ToNull(jf["subType"]),
+                "standardTitle":  standardTitle,
+                "subType":  subType,
                 "xploreDocumentType": xplore,
                 "volume":  v,
                 "title":  title

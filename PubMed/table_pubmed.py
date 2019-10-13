@@ -5,12 +5,6 @@ from tqdm import tqdm
 from datetime import datetime
 
 
-for pubmed_data in tqdm(glob.glob("./crawl/PubMed/example.json")):
-    with open(pubmed_data , 'r',encoding = 'utf-8') as reader:
-        jf = json.loads(reader.read())
-
-
-
 dynamodb = boto3.resource('dynamodb')
 table = dynamodb.Table('ncbi')
 fail =[]
@@ -33,69 +27,113 @@ def _ToString(data):
 
 
 
-
-for pubmed_data in tqdm(glob.glob("./newdata/*/*/*.json")):
+for pubmed_data in tqdm(glob.glob("./pubmed/*/*.json")):
     with open(pubmed_data , 'r',encoding = 'utf-8') as reader:
         jf = json.loads(reader.read())
-        for i in range(len(jf["PubmedArticleSet"]['PubmedArticle'])):
-            try:
-                ArticleId = _ToNull(jf["PubmedArticleSet"]['PubmedArticle'][i]['PubmedData']['ArticleIdList']['ArticleId'][0]['#text'])
-                ArticleTitle = _ToNull(jf["PubmedArticleSet"]['PubmedArticle'][i]['MedlineCitation']['Article']['ArticleTitle'])
-                ArticleDate = _ToNull(jf["PubmedArticleSet"]['PubmedArticle'][i]['MedlineCitation']['Article']['ArticleDate'])
-                AuthorList  = _ToNull(jf["PubmedArticleSet"]['PubmedArticle'][i]['MedlineCitation']['Article']['AuthorList'])
-                PublicationTypeList = _ToNull(jf["PubmedArticleSet"]['PubmedArticle'][i]['MedlineCitation']['Article']['PublicationTypeList'])
-                Journal = _ToNull(jf["PubmedArticleSet"]['PubmedArticle'][i]['MedlineCitation']['Article']['Journal'])
-                Language = _ToNull(jf["PubmedArticleSet"]['PubmedArticle'][i]['MedlineCitation']['Article']['Language'])
-                Abstract =  _ToNull(jf["PubmedArticleSet"]['PubmedArticle'][i]['MedlineCitation']['Abstract']['AbstractText'])
-                '''
-                if isinstance(_ToNull(jf["PubmedArticleSet"]['PubmedArticle'][0]['MedlineCitation']['Abstract']['AbstractText']),str):
-                    Abstract =  _ToNull(jf["PubmedArticleSet"]['PubmedArticle'][0]['MedlineCitation']['Abstract']['AbstractText'])
-                else if isinstance(_ToNull(jf["PubmedArticleSet"]['PubmedArticle'][0]['MedlineCitation']['Abstract']['AbstractText']),str):
-                    Abstract =  _ToNull(jf["PubmedArticleSet"]['PubmedArticle'][0]['MedlineCitation']['Abstract']['AbstractText'])
-                '''
-                table.put_item(
-                        Item={
-                            "Abstract": Abstract,
-                            "ArticleDate": ArticleDate,
-                            "ArticleId": ArticleId,
-                            "ArticleTitle": ArticleTitle,
-                            "AuthorList": AuthorList,
-                            "Journal": Journal,
-                            "Language": Language,
-                            "PublicationTypeList": PublicationTypeList
-                        }
-                    )
-            except:
-                print(pubmed_data)
-                fail.append(pubmed_data+'_PubmedArticle'+str(i)+'\n')    
-        for i in range(len(jf["PubmedArticleSet"]['PubmedBookArticle'])):
-            try:            
-                ArticleId = _ToNull(jf["PubmedArticleSet"]['PubmedBookArticle'][i]['PubmedBookData']['ArticleIdList']['ArticleId']['#text'])
-                ArticleTitle = _ToNull(jf["PubmedArticleSet"]['PubmedBookArticle'][i]['BookDocument']['ArticleTitle']['#text'])
-                ArticleDate = _ToNull(jf["PubmedArticleSet"]['PubmedBookArticle'][i]['BookDocument']['ContributionDate'])
-                AuthorList  = _ToNull(jf["PubmedArticleSet"]['PubmedBookArticle'][i]['BookDocument']['AuthorList'])
-                PublicationTypeList = None
-                Journal = None
-                Language = _ToNull(jf["PubmedArticleSet"]['PubmedBookArticle'][i]['BookDocument']['Language'])
+        try:
+            for i in range(len(jf["PubmedArticleSet"]['PubmedArticle'])):
                 try:
-                    Abstract = _ToNull(jf["PubmedArticleSet"]['PubmedBookArticle'][i]['BookDocument']['Abstract']['AbstractText']['#text'])
+                    ArticleId = _ToNull(jf["PubmedArticleSet"]['PubmedArticle'][i]['PubmedData']['ArticleIdList']['ArticleId'][0]['#text'])
+                    try:
+                        ArticleTitle = _ToNull(jf["PubmedArticleSet"]['PubmedArticle'][i]['MedlineCitation']['Article']['ArticleTitle'])
+                    except:
+                        ArticleTitle = None
+                    try:
+                        ArticleDate = _ToNull(jf["PubmedArticleSet"]['PubmedArticle'][i]['MedlineCitation']['Article']['ArticleDate'])
+                    except:
+                        ArticleDate = None
+                    try:
+                        AuthorList  = _ToNull(jf["PubmedArticleSet"]['PubmedArticle'][i]['MedlineCitation']['Article']['AuthorList'])
+                    except:
+                        AuthorList = None
+                    try:
+                        PublicationTypeList = _ToNull(jf["PubmedArticleSet"]['PubmedArticle'][i]['MedlineCitation']['Article']['PublicationTypeList'])
+                    except:
+                        PublicationTypeList = None
+                    try:                    
+                        Journal = _ToNull(jf["PubmedArticleSet"]['PubmedArticle'][i]['MedlineCitation']['Article']['Journal'])
+                    except:
+                        Journal = None
+                    try:
+                        Language = _ToNull(jf["PubmedArticleSet"]['PubmedArticle'][i]['MedlineCitation']['Article']['Language'])
+                    except:
+                        Language = None
+                    try:
+                        Abstract =  _ToNull(jf["PubmedArticleSet"]['PubmedArticle'][i]['MedlineCitation']['Abstract']['AbstractText'])
+                    except:
+                        Abstract = None
+                    '''
+                    if isinstance(_ToNull(jf["PubmedArticleSet"]['PubmedArticle'][0]['MedlineCitation']['Abstract']['AbstractText']),str):
+                        Abstract =  _ToNull(jf["PubmedArticleSet"]['PubmedArticle'][0]['MedlineCitation']['Abstract']['AbstractText'])
+                    else if isinstance(_ToNull(jf["PubmedArticleSet"]['PubmedArticle'][0]['MedlineCitation']['Abstract']['AbstractText']),str):
+                        Abstract =  _ToNull(jf["PubmedArticleSet"]['PubmedArticle'][0]['MedlineCitation']['Abstract']['AbstractText'])
+                    '''
+                    table.put_item(
+                            Item={
+                                "Abstract": Abstract,
+                                "ArticleDate": ArticleDate,
+                                "ArticleId": ArticleId,
+                                "ArticleTitle": ArticleTitle,
+                                "AuthorList": AuthorList,
+                                "Journal": Journal,
+                                "Language": Language,
+                                "PublicationTypeList": PublicationTypeList
+                            }
+                        )
                 except:
-                    Abstract = _ToNull(jf["PubmedArticleSet"]['PubmedBookArticle'][i]['BookDocument']['Abstract']['AbstractText'])
-                table.put_item(
-                        Item={
-                            "Abstract": Abstract,
-                            "ArticleDate": ArticleDate,
-                            "ArticleId": ArticleId,
-                            "ArticleTitle": ArticleTitle,
-                            "AuthorList": AuthorList,
-                            "Journal": Journal,
-                            "Language": Language,
-                            "PublicationTypeList": PublicationTypeList
-                        }
-                    )
-            except:
-                print(pubmed_data)
-                fail.append(pubmed_data+'_PubmedBookArticle'+str(i)+'\n')
+                    print("pubmed_data_fail")
+                    fail.append(pubmed_data+'_PubmedArticle'+str(i)+'\n')    
+        except:
+            print("no Article")
+        try:    
+            for i in range(len(jf["PubmedArticleSet"]['PubmedBookArticle'])):
+                try:          
+                    ArticleId = _ToNull(jf["PubmedArticleSet"]['PubmedBookArticle'][i]['PubmedBookData']['ArticleIdList']['ArticleId']['#text'])
+                    try:
+                        ArticleTitle = _ToNull(jf["PubmedArticleSet"]['PubmedBookArticle'][i]['BookDocument']['ArticleTitle']['#text'])
+                    except:
+                        ArticleTitle = None
+                    try:
+                        ArticleDate = _ToNull(jf["PubmedArticleSet"]['PubmedBookArticle'][i]['BookDocument']['ContributionDate'])
+                    except:
+                        ArticleDate = None
+                    try:
+                        AuthorList  = _ToNull(jf["PubmedArticleSet"]['PubmedBookArticle'][i]['BookDocument']['AuthorList'])
+                    except:
+                        AuthorList  = None
+                    try:
+                        PublicationTypeList = None
+                    except:
+                        PublicationTypeList = None
+                    Journal = None
+                    try:
+                        Language = _ToNull(jf["PubmedArticleSet"]['PubmedBookArticle'][i]['BookDocument']['Language'])
+                    except:
+                        Language = None
+                    try:
+                        try:
+                            Abstract = _ToNull(jf["PubmedArticleSet"]['PubmedBookArticle'][i]['BookDocument']['Abstract']['AbstractText']['#text'])
+                        except:
+                            Abstract = _ToNull(jf["PubmedArticleSet"]['PubmedBookArticle'][i]['BookDocument']['Abstract']['AbstractText'])
+                    except:
+                        Abstract = None
+                    table.put_item(
+                            Item={
+                                "Abstract": Abstract,
+                                "ArticleDate": ArticleDate,
+                                "ArticleId": ArticleId,
+                                "ArticleTitle": ArticleTitle,
+                                "AuthorList": AuthorList,
+                                "Journal": Journal,
+                                "Language": Language,
+                                "PublicationTypeList": PublicationTypeList
+                            }
+                        )
+                except:
+                    print("pubmedbook_data_fail")
+                    fail.append(pubmed_data+'_PubmedBookArticle'+str(i)+'\n')
+        except:
+            print("No Book")
                 
     
 fp = open("fail.txt", "a")
