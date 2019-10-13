@@ -145,9 +145,10 @@ for ieee_data in tqdm(glob.glob("./data/*/*/*/*.json")):
                 
             }
         )
-    except:
-        print(ieee_data)
-        fail.append(ieee_data+'\n')
+    except Exception as e:
+        print(e)
+        #print(ieee_data)
+        #fail.append(ieee_data+'\n')
     
 fp = open("fail.txt", "a")
 # 將 lines 所有內容寫入到檔案
