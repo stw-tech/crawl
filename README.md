@@ -1,10 +1,10 @@
 # Web Crawling
 This respository shows the code of crawling different websites
 
-# Configuration
+## Configuration
 compiler: python 3.6  
 using `pip` to install the requested libraries 
-## Common Library
+### Common Library
 - `requests` 
 - `bs4`
 - `pandas`
@@ -22,5 +22,5 @@ using `pip` to install the requested libraries
 
   # import utils  <- should comment out this line 
   ```
-## NCBI Library
+### NCBI Library
 - `biopython`
