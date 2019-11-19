@@ -2,3 +2,8 @@
 
 ieee/data
 uspto/newdata
+data_gcis/data
+data_gcis/directors_data
+data_gcis/updating_data
+grb/data
+venv
