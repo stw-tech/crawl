@@ -1,25 +1,23 @@
 import requests
-import urllib.request
 import json
 import time
 import os
 import random
 import datetime
 from bs4 import BeautifulSoup
-from utils import map_name, b_code, b_acc_no
+from util import map_name, b_code, b_acc_no
 from itertools import product
 
 
 date = datetime.datetime.now()
 api_url = 'http://data.gcis.nat.gov.tw/od/data/api/'
-crawled_items = [15]
+crawled_items = [6] # api 6, 13, 15, 24~28, 31~39, 41~48
 skip_limit = 500000
-
-
 total_para = {
+            # total parameters should be feeded
             'format': ['json'],
             'Business_Accounting_NO': b_acc_no,
-            'Business_Current_Status' : ['01', '02', '03', '04', '05', '06', '07', '08', '09'],
+            'Business_Current_Status' : ['01'], # '02', '03', '04', '05', '06', '07', '08', '09' other different parms
             'Business_Register_Funds' : ['A', 'B', 'C', 'D', 'E', 'F', 'G'],
             'Business_Item': b_code['ALL'],
             'Business_Item_A': b_code['A'],
@@ -39,10 +37,14 @@ total_para = {
             'top' : [1000]
              }
 
+saving_dir = '../data'
 def get_api_info():
 
     '''
-    crawl html to get corresponding api_name, id, parameters, formula
+    this function gets corresponding api_name, id, parameters, formula by crawling html
+
+    Returns:
+        api_dict : a dictionary with different api and corresponding api_name, id, parameters, formula
     '''
 
     Request_URL =  'https://data.gcis.nat.gov.tw/od/rule'
@@ -51,7 +53,6 @@ def get_api_info():
     html_txt = res.text
 
     soup = BeautifulSoup(html_txt, 'html.parser')
-    # print(soup.prettify())
     heading_tag = 'div.panel-heading label'     # tag of api id and name
     body_tag = 'div.panel-body '  # tag of api parameters
 
@@ -87,17 +88,15 @@ def get_api_info():
         formula = formula.replace('\r\n\t\t\t\t\t\t\t', '')
         api_dict['formula'].append(formula)
 
-    print(api_dict['id'])
-    print(api_dict['name'])
-    print(api_dict['para'])
-    print(api_dict['formula'])
-
     return api_dict
 
 def crawl_from_api(api):
 
-    ''''
-    api is a dictionary saved id, name, parameter, formula
+    '''
+    this function crawls the data from each api by feeding corresponding parameters
+
+    Args:
+        api: a dictionary with api's id, name, parameter, formula
     '''
     items = [i - 1 for i in crawled_items]
 
@@ -105,9 +104,6 @@ def crawl_from_api(api):
 
         para_idx = api_dict['para'][api_idx]
         name_idx = api_dict['name'][api_idx]
-
-        if not os.path.exists('../newdata/{api_name}'.format(api_name = name_idx)):
-            os.makedirs('../newdata/{api_name}'.format(api_name = name_idx))
 
         feed_tmp = {}
         for para in para_idx.keys():
@@ -135,7 +131,6 @@ def crawl_from_api(api):
                 try:
                     x = res.json()
                     crawled_data = json.dumps(x, indent=4, sort_keys=False, ensure_ascii=False)
-                    # print(crawled_data)
                     save_json(para_idx, name_idx, crawled_data)
 
                 except json.decoder.JSONDecodeError:
@@ -143,37 +138,39 @@ def crawl_from_api(api):
                     break
 
                 para_idx['skip'] += para_idx['top']
-    print('debug')
 
-def save_json(para_idx, name_idx, crawled_data):
+def save_json(para, name, crawled_data):
+
+    '''
+    this function is to save json
+
+    Args:
+        para: a dictionary with the parameters of coressponding api should be feeded
+        name: the name of the crawling api(str)
+        crawled_data: the crawled data(str)
+    '''
 
     excluded_fields = ('format', 'top', 'skip')
-    save_keys = [k for k in para_idx.keys() if k not in excluded_fields]
-    # transfer = ('Business_Current_Status', 'Business_Register_Funds', 'Business_Item_A', 'Business_Item_B', 'Business_Item_C', 'Business_Item_D', 'Business_Item_E', 'Company_Status', 'Capital_Stock_Amount', )
+    save_keys = [k for k in para.keys() if k not in excluded_fields]
 
     dir_name = []
+
     for key in save_keys :
-       name = map_name(key, para_idx)
+       name = map_name(key, para)
        dir_name.append(name)
 
-    constant_path = '../new_data'
     path = '/'.join(dir for dir in dir_name)
-    json_path = os.path.join(constant_path, name_idx, path)
+    json_path = os.path.join(saving_dir, name, path)
 
     if not os.path.exists(json_path):
         os.makedirs(json_path)
 
-    file_name = '{}~{}.json'.format(para_idx['skip'] + 1, para_idx['skip'] + para_idx['top'])
+    file_name = '{}~{}.json'.format(para['skip'] + 1, para['skip'] + para['top'])
     with open(os.path.join(json_path, file_name), 'w', encoding='utf-8') as f:
         f.write(crawled_data)
-
-
 
 if __name__ == "__main__":
 
     api_dict = get_api_info()
     crawl_from_api(api_dict)
-
-    # dict = {'test_x': 'json', 'test_y':456}
-    # print('debug%{test_x}%{test_y}'.format(**dict))
 
