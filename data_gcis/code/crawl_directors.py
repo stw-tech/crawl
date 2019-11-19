@@ -17,7 +17,6 @@ form_data = {
 
 updating_dir = '../updating_data/'
 checking_dir = '../directors_data'
-
 def get_directors(acc_num_list):
 
     '''
