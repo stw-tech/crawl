@@ -3,11 +3,11 @@ import xmltojson
 import json
 import time
 import os
-
+import urllib
 
 start_year = 1900
 end_year = 2019
-save_dir = 'E:/ssbi_dataset/pubmed'
+save_dir = 'E:/ssbi_dataset/pubmed_50'
 
 def crawl(year, start_num):
 
@@ -20,13 +20,14 @@ def crawl(year, start_num):
     webenv = record['WebEnv']
     query_key = record["QueryKey"]
 
-    batch_size = 1000
+    batch_size = 50
     print('total num of crawling data: {}, finish crawled: {}, left crawled: {}'. format(total_num, start_num, total_num-start_num))
     if (total_num-start_num) != 0:
 
         print('>>> crawling data in {} year'.format(year))
         for start in range(start_num, total_num, batch_size):
 
+            time.sleep(1)
             end = min(total_num, start + batch_size)
             print('total records: {}, downloading records {} to {} '.format(total_num, start+1, end))
             try:
@@ -71,7 +72,7 @@ def check_crawled(year):
 
 if __name__ == "__main__":
 
-    for year in range(start_year, end_year+1):
+    for year in range(end_year, start_year-1, -1):
 
         start_num = check_crawled(year)
         patent = crawl(year, start_num)
