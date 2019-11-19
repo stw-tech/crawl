@@ -1,8 +1,8 @@
 # Web Crawling
 This respository shows the code of crawling different websites
 
-## Configuration
-programming language: python 3.6
+# Configuration
+compilerpython 3.6  
 Using `pip` to install the requested libraries 
 - `requests` 
 - `bs4`
@@ -11,16 +11,16 @@ Using `pip` to install the requested libraries
 - `lxml` 
 - `biopython`
 - `xmltojson` 
- - should comment out one line in xmltojson.py or it will happen some error 
+  - should comment out one line in xmltojson.py or it will happen some error, there are an example below 
 
-```
-# --- Setup
+  ```
+  # --- Setup
 
-import json
-import os
-import sys
-import xmltodict
+  import json
+  import os
+  import sys
+  import xmltodict
 
-# import utils  <- should comment out this line 
+  # import utils  <- should comment out this line 
 
-```
+  ```
