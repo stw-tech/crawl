@@ -156,8 +156,8 @@ def save_json(para, name, crawled_data):
     dir_name = []
 
     for key in save_keys :
-       name = map_name(key, para)
-       dir_name.append(name)
+       k_name = map_name(key, para)
+       dir_name.append(k_name)
 
     path = '/'.join(dir for dir in dir_name)
     json_path = os.path.join(saving_dir, name, path)
