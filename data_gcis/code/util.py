@@ -8,6 +8,9 @@ b_item_excel = "../excel/business_item.xlsx"
 
 def map_name(key, para_idx):
 
+    '''
+       this function map the parameters to corresponding Chinese name
+    '''
     if key == 'Business_Current_Status':
 
         business_status = ['核准設立', '停業', '歇業,撤銷', '申覆(辯)期', '遷他縣市', '列入廢止中', '廢止', '破產', '設立無效']
@@ -39,13 +42,6 @@ def map_name(key, para_idx):
         index = items.index(para_idx[key])
         return stock_amount[index]
 
-    # if key == 'Business_Item_A':
-    #
-    #     items = b_code['A']
-    #     business_item = b_item['A']
-    #     index = items.index(para_idx[key])
-    #     return business_item[index]
-
     item_class = "ABCDEFGHIJZ"
     for cls in item_class:
         if key == 'Business_Item_{}'.format(cls) :
@@ -72,6 +68,12 @@ def map_name(key, para_idx):
 
 
 def get_busisness_item(path):
+
+    '''
+    this function get the business_item
+    Args:
+        path: path of business item excel
+    '''
 
     data = pd.read_excel(path)
     item_code = data['營業項目代碼']
@@ -100,22 +102,22 @@ def get_busisness_item(path):
 
 def get_business_acc_num():
 
+    '''
+    this function get the business account number by api 公司登記資本額查詢 amd companys with 核准設立
+    '''
     api_dir = "../data/公司登記資本額查詢"
     status = os.listdir(api_dir)
 
     business_accounting_NO = []
     company_name = []
-    # count = {}
 
     for dir in status:
 
-        # count[dir] = {}
         if dir == "核准設立":
             status_path = os.path.join(api_dir, dir)
             stock_amount = os.listdir(status_path)
             for amount in stock_amount:
 
-                # count[amount] = []
                 stock_amount_dir = os.path.join(status_path, amount)
                 json_file = os.listdir(stock_amount_dir)
 
@@ -132,8 +134,7 @@ def get_business_acc_num():
 
                             business_accounting_NO.append(b_acc_no)
                             company_name.append(name)
-                # count[amount].append(len(business_accounting_NO))
-            # print(count)
+
     return business_accounting_NO, company_name
 
 b_acc_no, company_name = get_business_acc_num()
