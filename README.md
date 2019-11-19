@@ -3,8 +3,7 @@ This respository shows the code of crawling different websites
 
 # Configuration
 compiler: python 3.6  
-
-Using `pip` to install the requested libraries 
+using `pip` to install the requested libraries 
 ## Common Library
 - `requests` 
 - `bs4`
@@ -16,14 +15,12 @@ Using `pip` to install the requested libraries
 
   ```
   # --- Setup
-
   import json
   import os
   import sys
   import xmltodict
 
   # import utils  <- should comment out this line 
-
   ```
 ## NCBI Library
 - `biopython`
