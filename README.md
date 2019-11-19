@@ -2,14 +2,15 @@
 This respository shows the code of crawling different websites
 
 # Configuration
-compilerpython 3.6  
+compiler: python 3.6  
+
 Using `pip` to install the requested libraries 
+## Common Library
 - `requests` 
 - `bs4`
 - `pandas`
 - `xlrd`
-- `lxml` 
-- `biopython`
+- `lxml`
 - `xmltojson` 
   - should comment out one line in xmltojson.py or it will happen some error, there are an example below 
 
@@ -24,3 +25,5 @@ Using `pip` to install the requested libraries
   # import utils  <- should comment out this line 
 
   ```
+## NCBI Library
+- `biopython`
