@@ -2,6 +2,12 @@
 Crawling IEEE `conference` and `journal` from 1975-2019 years, and update everyday  
 Referer URL: <https://ieeexplore.ieee.org/search/advanced/citation>
 
+## How to Run
+go to the directory of python code, you can simply run using this command:
+```
+python crawl_ieee.py
+``` 
+
 ## Save Path
 The original crawling paper saved into following path 
 * Path: `../data/<paper_type>/<year>/<articlenumber>/data.json`

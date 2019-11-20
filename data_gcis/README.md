@@ -4,6 +4,13 @@ Referer URL: <http://data.gcis.nat.gov.tw/od/rule>
 * Finishing crawling directors data with company `核准設立` 
 * The `business_item.xlsx` should be included in path `../excel/business_item.xlsx`
 
+## How to Run
+go to the directory of python code, you can simply run using this command:
+```
+python crawl_gcis.py
+python crawl_directors.py
+``` 
+
 ## Save Path
 The original crawling data will be save into following path
 * API Path: `../data/<API_NAME>/<para1>/<para2>/<index.json>`

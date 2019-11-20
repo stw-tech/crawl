@@ -3,6 +3,12 @@ Crawling USPTO data from 2001-2019 years, and update everyday
 Referer URL: <http://appft.uspto.gov/netahtml/PTO/help/helpflds.html#Publication_Date>  
 Referer URL: <http://appft.uspto.gov/netahtml/PTO/search-adv.html>  
 
+## How to Run
+go to the directory of python code, you can simply run using this command:
+```
+python crawl_uspto.py
+``` 
+
 ## Save Path
 The original crawling patents will be save into following path
 * Path: `../newdata/<year>/<Publication_Number>/data.json`
