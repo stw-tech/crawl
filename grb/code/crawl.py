@@ -31,6 +31,9 @@ data = {
 
 def check_update():
 
+    '''
+    this function checks the information is crawled or not and crawl the data
+    '''
 
     for year in range(end_year, start_year-1, -1):
 
@@ -57,7 +60,6 @@ def check_update():
             print('>> the {}\'s plans should be updated'.format(year))
             while current_page <= total_pages:
 
-                # print('>> collecting {}/{} pages'.format(current_page, total_pages))
                 data['nowPage'] = current_page
                 time.sleep(random.uniform(2, 5))
                 res = requests.post(url=url, data=data, headers=headers)
@@ -76,6 +78,10 @@ def check_update():
 
 
 def get_data(id_list, year):
+
+    '''
+    this function gets the data and save into json
+    '''
 
     print('>> updating {}\'s plan, there are {} plans to update'.format(year, len(id_list)))
 
