@@ -11,7 +11,7 @@ using `pip` to install the requested libraries
 - `xlrd`
 - `lxml`
 - `xmltojson` 
-  > should comment out one line in `xmltojson.py` or it will happen some error, there are an example below 
+  > should comment out one line in `xmltojson.py` or it will meet some error, there are an example below 
 
   ```
   # --- Setup
