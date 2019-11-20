@@ -1,5 +1,14 @@
 # USPTO
-Crawling USPTO data from 2001-2019 years, and update everyday
+Crawling USPTO data from 2001-2019 years, and update everyday  
+Referer URL: <http://appft.uspto.gov/netahtml/PTO/help/helpflds.html#Publication_Date>  
+Referer URL: <http://appft.uspto.gov/netahtml/PTO/search-adv.html>  
+
 ## Save Path
-* Path: `/newdata/<years>/<Publication_Number>/data.json`
-	* ex: /newdata/2018/20180000002/data.json
+The original crawling patents will be save into following path
+* Path: `../newdata/<year>/<Publication_Number>/data.json`
+	* ex: ../newdata/2018/20180000002/data.json
+
+## Updating Path 
+The patents will be updated everyday by checking exist crawling patents and save into following path 
+* Path: `../updating_data/<updating_year>/<updating_day>/<PY+year>/<Publication_Number>/data.json`
+	* ex: ../updating_data/2019/1105/PY2018/20180000002/data.json
