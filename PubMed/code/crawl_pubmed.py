@@ -11,6 +11,14 @@ save_dir = 'E:/ssbi_dataset/pubmed_50'
 
 def crawl(year, start_num):
 
+    '''
+    this function crawls the paper in pubmed dataset
+
+    Args:
+        start_num: the starting index of crawling data
+        year: year
+    '''
+
     Entrez.email = "luk2310405@gmail.com"
     time.sleep(1)
     handle = Entrez.esearch(db = "pubmed", term= '({}[Date - Publication] : {}[Date - Publication])'.format(year, year), usehistory = 'y')
@@ -45,6 +53,15 @@ def crawl(year, start_num):
 
 def save_json(crawl_data, year, start, end):
 
+    '''
+    this function saves the json
+
+    Args:
+        crawl_data: The crawling of PubMed data
+        year: year
+        start: start index
+        end: end index
+    '''
     path = os.path.join(save_dir, str(year))
 
     if not os.path.exists(path):
@@ -56,6 +73,15 @@ def save_json(crawl_data, year, start, end):
 
 def check_crawled(year):
 
+    '''
+    this function saves the json
+
+    Args:
+        year: year
+    Returns:
+        start_num: start index of crawling data
+    '''
+    
     print('>>> checking data in {} year is crawled or not'.format(year))
     ck_path = os.path.join(save_dir, str(year))
 
