@@ -81,7 +81,7 @@ def check_crawled(year):
     Returns:
         start_num: start index of crawling data
     '''
-    
+
     print('>>> checking data in {} year is crawled or not'.format(year))
     ck_path = os.path.join(save_dir, str(year))
 
