@@ -17,7 +17,7 @@ total_para = {
             # total parameters should be feeded
             'format': ['json'],
             'Business_Accounting_NO': b_acc_no,
-            'Business_Current_Status' : ['01'], # '02', '03', '04', '05', '06', '07', '08', '09' other different parms
+            'Business_Current_Status' : ['01', '02', '03', '04', '05', '06', '07', '08', '09'],
             'Business_Register_Funds' : ['A', 'B', 'C', 'D', 'E', 'F', 'G'],
             'Business_Item': b_code['ALL'],
             'Business_Item_A': b_code['A'],
@@ -31,7 +31,7 @@ total_para = {
             'Business_Item_I': b_code['I'],
             'Business_Item_J': b_code['J'],
             'Business_Item_Z': b_code['Z'],
-            'Company_Status' :  ['0' + str(i) for i in range(1, 10)] + [str(i) for i in range(11,34)],
+            'Company_Status' :  ['01'], # 01~33
             'Capital_Stock_Amount' : ['A', 'B', 'C', 'D', 'E', 'F', 'G'],
             'skip': [0],
             'top' : [1000]
