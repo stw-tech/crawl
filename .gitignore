@@ -1,7 +1,7 @@
 *.json
-
 ieee/data
 uspto/newdata
+uspto/data
 data_gcis/data
 data_gcis/directors_data
 data_gcis/updating_data
