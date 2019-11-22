@@ -91,7 +91,7 @@ def get_patent_num(year):
         try:
             request_url = 'http://appft.uspto.gov/netacgi/nph-Parser?Sect1={Sect1}&Sect2={Sect2}&p={p}&u={u}' \
                           '&r={r}&f={f}&l={l}&d={d}&Query={Query}'.format(**payload)
-            time.sleep(2)
+            time.sleep(random.uniform(1.5, 2))
             res = requests.get(url= request_url, headers = headers)
             html_txt = res.text
             soup = BeautifulSoup(html_txt, 'html.parser')
@@ -271,9 +271,10 @@ def check_crawled(year):
         for y in year_dir:
             y_path = os.path.join(updating_dir, y)
             for date in os.listdir(y_path):
-                path = os.path.join(y_path, date, year)
-                id = os.listdir(path)
-                crawled_id.extend(id)
+                path = os.path.join(y_path, date, str(year))
+                if os.path.exists(path):
+                    id = os.listdir(path)
+                    crawled_id.extend(id)
 
     total_num = get_total_num(year)
     if len(crawled_id) < total_num :
