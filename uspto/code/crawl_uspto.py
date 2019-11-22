@@ -31,7 +31,7 @@ headers = {
 }
 
 updating_dir = '../updating_data/'
-checking_dir = '../newdata'
+checking_dir = '../data'
 
 def get_total_num(year):
 
@@ -91,7 +91,7 @@ def get_patent_num(year):
         try:
             request_url = 'http://appft.uspto.gov/netacgi/nph-Parser?Sect1={Sect1}&Sect2={Sect2}&p={p}&u={u}' \
                           '&r={r}&f={f}&l={l}&d={d}&Query={Query}'.format(**payload)
-            time.sleep(1)
+            time.sleep(2)
             res = requests.get(url= request_url, headers = headers)
             html_txt = res.text
             soup = BeautifulSoup(html_txt, 'html.parser')
@@ -153,7 +153,7 @@ def crawl_patent(patent, year):
                       '&r={r}&f={f}&l={l}&s1={s1}&OS={OS}&RS={RS}'.format(**num_payload)
         while True:
             try:
-                time.sleep(random.uniform(1, 2))
+                time.sleep(random.uniform(2, 3))
                 res = requests.get(url=request_url, headers = headers)
             except requests.exceptions.ConnectionError:
                 print('request Connection Error')
