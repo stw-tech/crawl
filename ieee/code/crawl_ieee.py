@@ -13,16 +13,18 @@ paper_type = ['journal', 'conference']
 
 start_page = 1
 request_url = 'https://ieeexplore.ieee.org/rest/search'
+
 headers = {
-    'Host': 'ieeexplore.ieee.org',
+    'Cookie':'fp=e9a149feac33eafa3bec7b6d77fd0726; s_ecid=MCMID%7C38485061798561223733907138784163590661; cookieconsent_status=dismiss; s_fid=3C5829A171883BF0-0D3010027F36547B; s_vi=[CS]v1|2EAA7DCA852A33CA-60000121E000ED72[CE]; _ga=GA1.2.122590794.1567684575; WLSESSION=237134476.20480.0000; JSESSIONID=_vobVnK_ooRkIX2hDVjrb3e6BMj3HtgdSq6to--ynFaOvHk_zy2y!-507395020; ipCheck=2001:b011:1004:17ca:e08b:82fe:8acb:d1c1; TS01dcb973=012f350623b1e2ccbe2b0318ee8445fa20c9a6120c954022ac7beb05a507dbe0f3d11e11d268b38515b8418de9519e203348b867dde94e950fb6dd6f526bf30dc5623e248d37059931f2abed7de1eb6569d3d73844; TS01109a32=012f350623ddbcdc70b1c6812b48b78f2fb31e1236954022ac7beb05a507dbe0f3d11e11d268b38515b8418de9519e203348b867ddf50cc96b4f867dedd4afbdd1f31a856c58578ad2a2cdb465f4a0458e85f8b1603604ca4696a86b7447971d64a3988644; AMCVS_8E929CC25A1FB2B30A495C97%40AdobeOrg=1; s_cc=true; AMCV_8E929CC25A1FB2B30A495C97%40AdobeOrg=1687686476%7CMCIDTS%7C18124%7CMCMID%7C38485061798561223733907138784163590661%7CMCAID%7CNONE%7CMCOPTOUT-1568128915s%7CNONE%7CMCAAMLH-1568726515%7C11%7CMCAAMB-1568726515%7Cj8Odv6LonN4r3an7LhD3WZrU1bUpAkFkkiY1ncBR96t2PTI%7CMCSYNCSOP%7C411-18157%7CvVersion%7C3.0.0; TS01dcb973_26=014082121d2c25b3a9e0de68919e0703ccbc104282653bd33c799d3c63741ff605133dc5068f951d9591354f5bc3d4304ea56edfededd51831d6611d1187fbec75af2e725d; s_sq=ieeexplore.prod%3D%2526c.%2526a.%2526activitymap.%2526page%253DAdvanced%252520Search%2526link%253DSearch%2526region%253DadvCommandSearch%2526pageIDType%253D1%2526.activitymap%2526.a%2526.c%2526pid%253DAdvanced%252520Search%2526pidt%253D1%2526oid%253Dfunctiononclick%252528event%252529%25257Breturnfalse%25257D%2526oidt%253D2%2526ot%253DIMG; utag_main=v_id:016c93f3f2a5000e4d3fbf63d46c03073002b06b00978$_sn:9$_ss:0$_st:1568123588163$vapi_domain:ieee.org$ses_id:1568121714811%3Bexp-session$_pn:6%3Bexp-session',
     'Content-Type': 'application/json',
     'Referer':'https://ieeexplore.ieee.org/rest/search',
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36'
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36'
+
 }
 
 payload = {
             "action":"search",
-            "searchWithin": ["\"Publication Title\":{}", "\"Publication_Year\":{}"],
+            "searchWithin": ["\"Publication Title\":{}", "\"Publication Year\":{}"],
             "highlight":True,
             'rowsPerPage': 100,
             'pageNumber': start_page,
@@ -35,7 +37,8 @@ payload = {
 updating_dir = '../updating_data/'
 checking_dir = '../data'
 
-proxy_list = ['167.71.106.246:3128', '165.22.123.198:8080', '157.245.90.37:8080']
+
+proxy_list = ['35.242.174.95:3128', '167.71.182.183:3128', '157.245.4.19:3128']
 
 def crawl_ieee(paper_list, p_type, year):
 
@@ -56,7 +59,7 @@ def crawl_ieee(paper_list, p_type, year):
 
         while True:
             try:
-                time.sleep(random.uniform(1, 3))
+                time.sleep(random.uniform(1, 2))
                 proxies = get_proxies()
                 doc_res = requests.get(doc_link, proxies = proxies)
 
@@ -136,7 +139,7 @@ def check_crawled(p_type, year):
     start_time = time.time()
 
     payload['pageNumber'] = start_page
-    payload['searchWithin'] = ["\"Publication Title\":{}".format(p_type), "\"Publication_Year\":{}".format(year)]
+    payload['searchWithin'] = ["\"Publication Title\":{}".format(p_type), "\"Publication Year\":{}".format(year)]
 
     ck_path = os.path.join(checking_dir, p_type, str(year))
 
@@ -184,7 +187,7 @@ def check_crawled(p_type, year):
 
                 while True:
                     try:
-                        time.sleep(random.uniform(2, 3))
+                        time.sleep(random.uniform(1, 3))
                         proxies = get_proxies()
                         res = requests.post(url=request_url, data=json.dumps(payload), headers=headers, proxies = proxies)
                         res_json = res.json()
