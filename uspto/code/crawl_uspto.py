@@ -271,7 +271,7 @@ def check_crawled(year):
         for y in year_dir:
             y_path = os.path.join(updating_dir, y)
             for date in os.listdir(y_path):
-                path = os.path.join(y_path, date, str(year))
+                path = os.path.join(y_path, date, 'PY'+str(year))
                 if os.path.exists(path):
                     id = os.listdir(path)
                     crawled_id.extend(id)
